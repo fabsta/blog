@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: homepage
+title: Homepage of Fabian Schreiber
 description: blog posts and code snippets.
 github_username: fabsta
 # you can comment the below line out if your repo name is not different than your baseurl
