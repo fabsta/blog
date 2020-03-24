@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Big Data Concepts Storage | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Big Data Concepts Storage" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview of Hadoop Tools and Concepts - Storage" />
+<meta property="og:description" content="Overview of Hadoop Tools and Concepts - Storage" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2016-09-14T00:00:00-05:00","headline":"Big Data Concepts Storage","description":"Overview of Hadoop Tools and Concepts - Storage","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/bigdata/2016/09/14/big-data-storage.html"},"@type":"BlogPosting","url":"/blog/bigdata/2016/09/14/big-data-storage.html","dateModified":"2016-09-14T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Big Data Concepts Storage | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Big Data Concepts Storage" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview of Hadoop Tools and Concepts - Storage" />
+<meta property="og:description" content="Overview of Hadoop Tools and Concepts - Storage" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2016-09-14T00:00:00-05:00","headline":"Big Data Concepts Storage","description":"Overview of Hadoop Tools and Concepts - Storage","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/bigdata/2016/09/14/big-data-storage.html"},"@type":"BlogPosting","url":"/blog/bigdata/2016/09/14/big-data-storage.html","dateModified":"2016-09-14T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Fabian&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/snippets/">Code snippets</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Big Data Concepts Storage</h1><p class="page-description">Overview of Hadoop Tools and Concepts - Storage</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2016-09-14T00:00:00-05:00" itemprop="datePublished">
+        Sep 14, 2016
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      15 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#BigData">BigData</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#table-of-contents">Table of contents</a></li>
+<li class="toc-entry toc-h1"><a href="#storage">Storage</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#hdfs">HDFS</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#architecture">Architecture</a></li>
+<li class="toc-entry toc-h3"><a href="#datanode">Datanode</a></li>
+<li class="toc-entry toc-h3"><a href="#journalnodes">Journalnodes</a></li>
+<li class="toc-entry toc-h3"><a href="#read-path">Read Path</a></li>
+<li class="toc-entry toc-h3"><a href="#write-path">Write Path</a></li>
+<li class="toc-entry toc-h3"><a href="#hdfs-federation">HDFS federation</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#activepassive-namenode">Active/passive Namenode</a></li>
+<li class="toc-entry toc-h4"><a href="#high-availability">High availability</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#shared-storage-using-nfs">Shared Storage using NFS</a></li>
+<li class="toc-entry toc-h5"><a href="#quorum-based-storage">Quorum-based Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#nosql">NoSQL</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#concepts">Concepts</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#row--vs-column-oriented">Row- vs. column-oriented</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#hbase">HBase</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h4"><a href="#advantages">Advantages</a></li>
+<li class="toc-entry toc-h4"><a href="#acid">ACID</a></li>
+<li class="toc-entry toc-h4"><a href="#schema-design">Schema design</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#sparse">Sparse</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#write-path-1">Write Path</a></li>
+<li class="toc-entry toc-h4"><a href="#read-path-1">Read Path</a></li>
+<li class="toc-entry toc-h4"><a href="#architecture-1">Architecture</a></li>
+<li class="toc-entry toc-h4"><a href="#table">Table</a></li>
+<li class="toc-entry toc-h4"><a href="#regions">Regions</a></li>
+<li class="toc-entry toc-h4"><a href="#region-server">Region server</a></li>
+<li class="toc-entry toc-h4"><a href="#region-splitting">Region splitting</a></li>
+<li class="toc-entry toc-h4"><a href="#region-splitting-process">Region splitting process</a></li>
+<li class="toc-entry toc-h4"><a href="#perfomance-tuning">Perfomance tuning</a></li>
+<li class="toc-entry toc-h4"><a href="#snapshots">Snapshots</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#phoenix">Phoenix</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#where-it-fits-in">where it fits in</a></li>
+<li class="toc-entry toc-h4"><a href="#architecture-2">Architecture</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#cassandra">Cassandra</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#data-nodes">Data nodes</a></li>
+<li class="toc-entry toc-h4"><a href="#read-path-2">Read Path</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#within-node">Within node</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#write-path-2">Write Path</a></li>
+<li class="toc-entry toc-h4"><a href="#partitioning-and-replication">Partitioning and Replication</a></li>
+<li class="toc-entry toc-h4"><a href="#hashing--tokens">Hashing / Tokens</a></li>
+<li class="toc-entry toc-h4"><a href="#security">Security</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#graph-databases">Graph databases</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#titan">Titan</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#architecture-3">Architecture</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#tinkerpop">Tinkerpop</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#architecture-4">Architecture</a></li>
+<li class="toc-entry toc-h5"><a href="#graph-landscape">Graph landscape</a></li>
+<li class="toc-entry toc-h5"><a href="#getting-started---example-graph">Getting started - Example graph</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#comparisons">Comparisons</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#cassandra-vs-hbase-vs-mongodb-vs-couchbase">Cassandra vs HBase vs MongoDB vs Couchbase</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#update">Update</a></li>
+<li class="toc-entry toc-h5"><a href="#cap-continuum">Cap Continuum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#sql-on-hadoop">SQL on hadoop</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#bigsql">BigSQL</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#architecture-5">Architecture</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hive">Hive</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#hiveql">HiveQL</a></li>
+<li class="toc-entry toc-h3"><a href="#ddl">DDL</a></li>
+<li class="toc-entry toc-h3"><a href="#hcatalog">HCatalog</a></li>
+<li class="toc-entry toc-h3"><a href="#web-interface">Web Interface</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#hive-web-interface">Hive Web Interface</a></li>
+<li class="toc-entry toc-h4"><a href="#webhcat">WebHCat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#tez">Tez</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tez-vs-spark">Tez vs Spark</a></li>
+<li class="toc-entry toc-h3"><a href="#hive-with-llap-live-long-and-process">Hive with LLAP (Live Long and Process)</a></li>
+<li class="toc-entry toc-h3"><a href="#mapreduce-vs-tez-vs-tez-llap">MapReduce vs Tez vs Tez LLAP</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#drill">Drill</a></li>
+<li class="toc-entry toc-h2"><a href="#impala">Impala</a></li>
+<li class="toc-entry toc-h2"><a href="#comparison">Comparison</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#impala-hive-stinger-pivotal-teradata-presto">Impala, Hive, Stinger, Pivotal, Teradata, Presto</a></li>
+<li class="toc-entry toc-h3"><a href="#benchmark-impala-hive-spark">Benchmark: Impala, Hive, Spark</a></li>
+<li class="toc-entry toc-h3"><a href="#benchmark-impala-hive-on-tez">Benchmark: Impala, Hive-on-Tez</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#overview-1">Overview</a></li>
+</ul>
+</li>
+</ul><h3 id="table-of-contents">
+<a class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of contents</a></li>
+  <li>
+<a href="#storage" id="markdown-toc-storage">Storage</a>    <ul>
+      <li>
+<a href="#hdfs" id="markdown-toc-hdfs">HDFS</a>        <ul>
+          <li><a href="#architecture" id="markdown-toc-architecture">Architecture</a></li>
+          <li><a href="#datanode" id="markdown-toc-datanode">Datanode</a></li>
+          <li><a href="#journalnodes" id="markdown-toc-journalnodes">Journalnodes</a></li>
+          <li><a href="#read-path" id="markdown-toc-read-path">Read Path</a></li>
+          <li><a href="#write-path" id="markdown-toc-write-path">Write Path</a></li>
+          <li>
+<a href="#hdfs-federation" id="markdown-toc-hdfs-federation">HDFS federation</a>            <ul>
+              <li><a href="#activepassive-namenode" id="markdown-toc-activepassive-namenode">Active/passive Namenode</a></li>
+              <li>
+<a href="#high-availability" id="markdown-toc-high-availability">High availability</a>                <ul>
+                  <li><a href="#shared-storage-using-nfs" id="markdown-toc-shared-storage-using-nfs">Shared Storage using NFS</a></li>
+                  <li><a href="#quorum-based-storage" id="markdown-toc-quorum-based-storage">Quorum-based Storage</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+<a href="#nosql" id="markdown-toc-nosql">NoSQL</a>        <ul>
+          <li>
+<a href="#concepts" id="markdown-toc-concepts">Concepts</a>            <ul>
+              <li><a href="#row--vs-column-oriented" id="markdown-toc-row--vs-column-oriented">Row- vs. column-oriented</a></li>
+            </ul>
+          </li>
+          <li>
+<a href="#hbase" id="markdown-toc-hbase">HBase</a>            <ul>
+              <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+              <li><a href="#advantages" id="markdown-toc-advantages">Advantages</a></li>
+              <li><a href="#acid" id="markdown-toc-acid">ACID</a></li>
+              <li>
+<a href="#schema-design" id="markdown-toc-schema-design">Schema design</a>                <ul>
+                  <li><a href="#sparse" id="markdown-toc-sparse">Sparse</a></li>
+                </ul>
+              </li>
+              <li><a href="#write-path-1" id="markdown-toc-write-path-1">Write Path</a></li>
+              <li><a href="#read-path-1" id="markdown-toc-read-path-1">Read Path</a></li>
+              <li><a href="#architecture-1" id="markdown-toc-architecture-1">Architecture</a></li>
+              <li><a href="#table" id="markdown-toc-table">Table</a></li>
+              <li><a href="#regions" id="markdown-toc-regions">Regions</a></li>
+              <li><a href="#region-server" id="markdown-toc-region-server">Region server</a></li>
+              <li><a href="#region-splitting" id="markdown-toc-region-splitting">Region splitting</a></li>
+              <li><a href="#region-splitting-process" id="markdown-toc-region-splitting-process">Region splitting process</a></li>
+              <li><a href="#perfomance-tuning" id="markdown-toc-perfomance-tuning">Perfomance tuning</a></li>
+              <li><a href="#snapshots" id="markdown-toc-snapshots">Snapshots</a></li>
+            </ul>
+          </li>
+          <li>
+<a href="#phoenix" id="markdown-toc-phoenix">Phoenix</a>            <ul>
+              <li><a href="#where-it-fits-in" id="markdown-toc-where-it-fits-in">where it fits in</a></li>
+              <li><a href="#architecture-2" id="markdown-toc-architecture-2">Architecture</a></li>
+            </ul>
+          </li>
+          <li>
+<a href="#cassandra" id="markdown-toc-cassandra">Cassandra</a>            <ul>
+              <li><a href="#data-nodes" id="markdown-toc-data-nodes">Data nodes</a></li>
+              <li>
+<a href="#read-path-2" id="markdown-toc-read-path-2">Read Path</a>                <ul>
+                  <li><a href="#within-node" id="markdown-toc-within-node">Within node</a></li>
+                </ul>
+              </li>
+              <li><a href="#write-path-2" id="markdown-toc-write-path-2">Write Path</a></li>
+              <li><a href="#partitioning-and-replication" id="markdown-toc-partitioning-and-replication">Partitioning and Replication</a></li>
+              <li><a href="#hashing--tokens" id="markdown-toc-hashing--tokens">Hashing / Tokens</a></li>
+              <li><a href="#security" id="markdown-toc-security">Security</a></li>
+            </ul>
+          </li>
+          <li>
+<a href="#graph-databases" id="markdown-toc-graph-databases">Graph databases</a>            <ul>
+              <li>
+<a href="#titan" id="markdown-toc-titan">Titan</a>                <ul>
+                  <li><a href="#architecture-3" id="markdown-toc-architecture-3">Architecture</a></li>
+                </ul>
+              </li>
+              <li>
+<a href="#tinkerpop" id="markdown-toc-tinkerpop">Tinkerpop</a>                <ul>
+                  <li><a href="#architecture-4" id="markdown-toc-architecture-4">Architecture</a></li>
+                  <li><a href="#graph-landscape" id="markdown-toc-graph-landscape">Graph landscape</a></li>
+                  <li><a href="#getting-started---example-graph" id="markdown-toc-getting-started---example-graph">Getting started - Example graph</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+<a href="#comparisons" id="markdown-toc-comparisons">Comparisons</a>            <ul>
+              <li>
+<a href="#cassandra-vs-hbase-vs-mongodb-vs-couchbase" id="markdown-toc-cassandra-vs-hbase-vs-mongodb-vs-couchbase">Cassandra vs HBase vs MongoDB vs Couchbase</a>                <ul>
+                  <li><a href="#update" id="markdown-toc-update">Update</a></li>
+                  <li><a href="#cap-continuum" id="markdown-toc-cap-continuum">Cap Continuum</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<a href="#sql-on-hadoop" id="markdown-toc-sql-on-hadoop">SQL on hadoop</a>    <ul>
+      <li>
+<a href="#bigsql" id="markdown-toc-bigsql">BigSQL</a>        <ul>
+          <li><a href="#architecture-5" id="markdown-toc-architecture-5">Architecture</a></li>
+        </ul>
+      </li>
+      <li>
+<a href="#hive" id="markdown-toc-hive">Hive</a>        <ul>
+          <li><a href="#hiveql" id="markdown-toc-hiveql">HiveQL</a></li>
+          <li><a href="#ddl" id="markdown-toc-ddl">DDL</a></li>
+          <li><a href="#hcatalog" id="markdown-toc-hcatalog">HCatalog</a></li>
+          <li>
+<a href="#web-interface" id="markdown-toc-web-interface">Web Interface</a>            <ul>
+              <li><a href="#hive-web-interface" id="markdown-toc-hive-web-interface">Hive Web Interface</a></li>
+              <li><a href="#webhcat" id="markdown-toc-webhcat">WebHCat</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+<a href="#tez" id="markdown-toc-tez">Tez</a>        <ul>
+          <li><a href="#tez-vs-spark" id="markdown-toc-tez-vs-spark">Tez vs Spark</a></li>
+          <li><a href="#hive-with-llap-live-long-and-process" id="markdown-toc-hive-with-llap-live-long-and-process">Hive with LLAP (Live Long and Process)</a></li>
+          <li><a href="#mapreduce-vs-tez-vs-tez-llap" id="markdown-toc-mapreduce-vs-tez-vs-tez-llap">MapReduce vs Tez vs Tez LLAP</a></li>
+        </ul>
+      </li>
+      <li><a href="#drill" id="markdown-toc-drill">Drill</a></li>
+      <li><a href="#impala" id="markdown-toc-impala">Impala</a></li>
+      <li>
+<a href="#comparison" id="markdown-toc-comparison">Comparison</a>        <ul>
+          <li><a href="#impala-hive-stinger-pivotal-teradata-presto" id="markdown-toc-impala-hive-stinger-pivotal-teradata-presto">Impala, Hive, Stinger, Pivotal, Teradata, Presto</a></li>
+          <li><a href="#benchmark-impala-hive-spark" id="markdown-toc-benchmark-impala-hive-spark">Benchmark: Impala, Hive, Spark</a></li>
+          <li><a href="#benchmark-impala-hive-on-tez" id="markdown-toc-benchmark-impala-hive-on-tez">Benchmark: Impala, Hive-on-Tez</a></li>
+        </ul>
+      </li>
+      <li><a href="#overview-1" id="markdown-toc-overview-1">Overview</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="storage">
+<a class="anchor" href="#storage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storage</h1>
+
+<h2 id="hdfs">
+<a class="anchor" href="#hdfs" aria-hidden="true"><span class="octicon octicon-link"></span></a>HDFS</h2>
+
+<h3 id="architecture">
+<a class="anchor" href="#architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h3>
+
+<p><img src="/images/bigdata/hdfs_architecture.jpg" alt="/images/lambda_architecture.png">
+<a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_02.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="datanode">
+<a class="anchor" href="#datanode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Datanode</h3>
+<p><img src="/images/bigdata/hdfs_datanode.jpg" alt="/images/lambda_architecture.png">
+<a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_03.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="journalnodes">
+<a class="anchor" href="#journalnodes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Journalnodes</h3>
+<p>In order for the Standby node to keep its state synchronized with the Active node, both nodes communicate with a group of separate daemons called “JournalNodes”.</p>
+
+<ul>
+  <li>Active node logs namespace modification to majority of JNs.</li>
+  <li>Standby node can read edits from JNs and is constantly watching for changes in edit log</li>
+</ul>
+
+<h3 id="read-path">
+<a class="anchor" href="#read-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read Path</h3>
+<p><img src="/images/bigdata/hdfs_read_path.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_04.jpg">image source</a></p>
+
+<ol>
+  <li>The client using a Distributed FileSystem object of Hadoop client API calls open() which initiate the read request.</li>
+  <li>Distributed FileSystem connects with NameNode. NameNode identifies the block locations of the file to be read and in which DataNodes the block is located.</li>
+  <li>NameNode then sends the list of DataNodes in order of nearest DataNodes from the client.</li>
+  <li>Distributed FileSystem then creates FSDataInputStream objects, which, in turn, wrap a DFSInputStream, which can connect to the DataNodes selected and get the block, and return to the client. The client initiates the transfer by calling the read() of FSDataInputStream.</li>
+  <li>FSDataInputStream repeatedly calls the read() method to get the block data.</li>
+  <li>When the end of the block is reached, DFSInputStream closes the connection from the DataNode and identifies the best DataNode for the next block.</li>
+  <li>When the client has finished reading, it will call close() on FSDataInputStream to close the connection.</li>
+</ol>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="write-path">
+<a class="anchor" href="#write-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write Path</h3>
+
+<p><img src="/images/bigdata/hdfs_write_path.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_05.jpg">image source</a></p>
+
+<ol>
+  <li>The client, using a Distributed FileSystem object of Hadoop client API, calls create(), which initiates the write request.</li>
+  <li>Distributed FileSystem connects with NameNode. NameNode initiates a new file creation, and creates a new record in metadata and initiates an output stream of type FSDataOutputStream, which wraps DFSOutputStream and returns it to the client. Before initiating the file creation, NameNode checks if a file already exists and whether the client has permissions to create a new file and if any of the condition is true then an IOException is thrown to the client.</li>
+  <li>The client uses the FSDataOutputStream object to write the data and calls the write() method. The FSDataOutputStream object, which is DFSOutputStream, handles the communication with the DataNodes and NameNode.</li>
+  <li>DFSOutputStream splits files to blocks and coordinates with NameNode to identify the DataNode and the replica DataNodes. The number of the replication factor will be the number of DataNodes identified. Data will be sent to a DataNode in packets, and that DataNode will send the same packet to the second DataNode, the second DataNode will send it to the third, and so on, until the number of DataNodes is identified.</li>
+  <li>When all the packets are received and written, DataNodes send an acknowledgement packet to the sender DataNode, to the client. DFSOutputStream maintains a queue internally to check if the packets are successfully written by DataNode. DFSOutputStream also handles if the acknowledgment is not received or DataNode fails while writing.</li>
+  <li>If all the packets have been successfully written, then the client closes the stream.</li>
+  <li>If the process is completed, then the Distributed FileSystem object notifies the NameNode of the status.</li>
+</ol>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="hdfs-federation">
+<a class="anchor" href="#hdfs-federation" aria-hidden="true"><span class="octicon octicon-link"></span></a>HDFS federation</h3>
+
+<p><img src="/images/bigdata/hdfs_federation.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_06.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="activepassive-namenode">
+<a class="anchor" href="#activepassive-namenode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Active/passive Namenode</h4>
+
+<ul>
+  <li>Active Namenode is the one who is writing edits to JournalNodes.</li>
+  <li>DataNodes know about location of both Namenodes, they send block location information and heartbeats to both.</li>
+  <li>Passive Namenode performs checkpoints (of namespace state), no Secondary NameNode required.</li>
+</ul>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="high-availability">
+<a class="anchor" href="#high-availability" aria-hidden="true"><span class="octicon octicon-link"></span></a>High availability</h4>
+
+<p>In general, there are two approaches</p>
+
+<ul>
+  <li>Shared Storage using NFS</li>
+  <li>Quorum-based Storage</li>
+</ul>
+
+<h5 id="shared-storage-using-nfs">
+<a class="anchor" href="#shared-storage-using-nfs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Storage using NFS</h5>
+
+<p><img src="/images/bigdata/shared-edit-log1.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://hadoopabcd.files.wordpress.com/2015/02/shared-edit-log1.png?w=512&amp;h=304">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h5 id="quorum-based-storage">
+<a class="anchor" href="#quorum-based-storage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quorum-based Storage</h5>
+
+<p><img src="/images/quorum-journal-without-zk.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://hadoopabcd.files.wordpress.com/2015/02/quorum-journal-without-zk.png?w=663&amp;h=338">image source</a></p>
+
+<p>adds two new components to HDFS deployment</p>
+<ul>
+  <li>Zookeeper quorum</li>
+  <li>ZKFailoverController (ZKFC)</li>
+</ul>
+
+<p>Automatic failover relies on Zookeeper:</p>
+
+<ul>
+  <li>Each Namenode maintains persistent session in Zookeeper</li>
+  <li>If machine crashes, session expires</li>
+  <li>Other Namenode is notified to take over</li>
+</ul>
+
+<p>ZKFC is responsible for:</p>
+
+<ul>
+  <li>ZKFC pings its local Namenode. If unresponsive, ZKFC marks it as unhealthy.</li>
+</ul>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h2 id="nosql">
+<a class="anchor" href="#nosql" aria-hidden="true"><span class="octicon octicon-link"></span></a>NoSQL</h2>
+
+<h3 id="concepts">
+<a class="anchor" href="#concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concepts</h3>
+
+<h4 id="row--vs-column-oriented">
+<a class="anchor" href="#row--vs-column-oriented" aria-hidden="true"><span class="octicon octicon-link"></span></a>Row- vs. column-oriented</h4>
+<p><img src="/images/bigdata/row_column_oriented.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://1.bp.blogspot.com/_j6mB7TMmJJY/TK1npAatLqI/AAAAAAAAAd4/TscPInSeUoo/s1600/p1.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="hbase">
+<a class="anchor" href="#hbase" aria-hidden="true"><span class="octicon octicon-link"></span></a>HBase</h3>
+
+<h4 id="overview">
+<a class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h4>
+<ul>
+  <li>Sparse: HBase is columnar and partition oriented. Usually, a record may have many columns and many of them may have null data, or the values may be repeated. HBase can efficiently and effectively save the space in sparse data.</li>
+  <li>Distributed: Data is stored in multiple nodes, scattered across the cluster.</li>
+  <li>Persistent: Data is written and saved in the cluster.</li>
+  <li>Multidimensional: A row can have multiple versions or timestamps of values.</li>
+  <li>Map: Key-Value Pair links the data structure to store the data.</li>
+  <li>Sorted: The Key in the structure is stored in a sorted order for faster read and write optimization.</li>
+</ul>
+
+<h4 id="advantages">
+<a class="anchor" href="#advantages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advantages</h4>
+<ul>
+  <li>Need of real-time random read/write on a high scale</li>
+  <li>Variable Schema: columns can be added or removed at runtime (schema-on-read)</li>
+  <li>Many columns of the datasets are sparse</li>
+  <li>Key based retrieval and auto sharding is required</li>
+  <li>Need of consistency more than availability</li>
+  <li>Data or tables have to be denormalized for better performance</li>
+</ul>
+
+<h4 id="acid">
+<a class="anchor" href="#acid" aria-hidden="true"><span class="octicon octicon-link"></span></a>ACID</h4>
+
+<ul>
+  <li>Atomicity: An operation in HBase either completes entirely or not at all for a row, but across nodes it is eventually consistent.</li>
+  <li>Durability: An update in HBase will not be lost due to WAL and MemStore.</li>
+  <li>Consistency and Isolation HBase is strongly consistent for a single row level but not across levels.</li>
+</ul>
+
+<p>(<a href="http://hbase.apache.org/acid-semantics.html">further reading</a>)</p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="schema-design">
+<a class="anchor" href="#schema-design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Schema design</h4>
+
+<h5 id="sparse">
+<a class="anchor" href="#sparse" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sparse</h5>
+<p>“Sparse” means that for any given row you can have one or more columns, but each row doesn’t need to have all the same columns as other rows like it (as in a relational model)</p>
+
+<p><img src="/images/bigdata/hbase_data_model.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://www.ymc.ch/wp-content/uploads/2014/02/HBase-Data-Model.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="write-path-1">
+<a class="anchor" href="#write-path-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write Path</h4>
+<p><img src="/images/bigdata/hbase_write_path.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://image.slidesharecdn.com/storageforbigdata-140207132641-phpapp01/95/storage-systems-for-big-data-hdfs-hbase-and-intro-to-kv-store-redis-36-638.jpg?cb=1391782647">image source</a></p>
+
+<ol>
+  <li>Client requests data to be written in HTable, the request comes to a RegionServer.</li>
+  <li>The RegionServer writes the data first in WAL.</li>
+  <li>The RegionServer identifies the Region which will store the data and the data will be saved in MemStore of that Region.</li>
+  <li>MemStore holds the data in memory and does not persist it. When the threshold value reaches in the MemStore, then the data is flushed as a HFile in that region.</li>
+</ol>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="read-path-1">
+<a class="anchor" href="#read-path-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read Path</h4>
+<p><img src="/images/bigdata/hbase_read_path.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://image.slidesharecdn.com/dwudevqos0kkksaqhvaj-signature-db258e0cddfb79ee29c1770895f09e97072db8b5ff7ee174f82789933a229c35-poli-140804080932-phpapp01/95/hbase-application-performance-improvement-16-638.jpg?cb=1432894628">image source</a></p>
+
+<ol>
+  <li>Client sends a read request. The request is received by the RegionServer which identifies all the Regions where the HFiles are present.</li>
+  <li>First, the MemStore of the Region is queried; if the data is present, then the request is serviced.</li>
+  <li>If the data is not present, the BlockCache is queried to check if it has the data; if yes, the request is serviced.</li>
+  <li>If the data is not present in the BlockCache, then it is pulled from the Region and serviced. Now the data is cached in MemStore and BlockCache..</li>
+</ol>
+
+<h4 id="architecture-1">
+<a class="anchor" href="#architecture-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h4>
+<p><img src="/images/bigdata/hbase_architecture.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-the-definitive/9781449398644/httpatomoreillycomsourceoreillyimages684893.png">image source</a></p>
+
+<p><img src="/images/bigdata/hbase_architecture2.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_01.jpg">image source</a></p>
+
+<p><img src="/images/bigdata/hbase_architecture_complex.png" alt="/images/bigdata/hbase_architecture_complex.png"></p>
+
+<p><a href="https://bighadoop.files.wordpress.com/2014/05/hbase-architecture.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="table">
+<a class="anchor" href="#table" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table</h4>
+<p>An HBase table comprises a set of metadata information and a set of key/value pairs:</p>
+
+<ul>
+  <li>Table Info: A manifest file that describes the table “settings”, like column families, compression and encoding codecs, bloom filter types, and so on.</li>
+  <li>Regions: The table “partitions” are called regions. Each region is responsible for handling a contiguous set of key/values, and they are defined by a start key and end key.</li>
+  <li>WALs/MemStore: Before writing data on disk, puts are written to the Write Ahead Log (WAL) and then stored in-memory until memory pressure triggers a flush to disk. The WAL provides an easy way to recover puts not flushed to disk on failure.</li>
+  <li>HFiles: At some point all the data is flushed to disk; an HFile is the HBase format that contains the stored key/values. HFiles are immutable but can be deleted on compaction or region deletion.</li>
+</ul>
+
+<p><a href="http://blog.cloudera.com/blog/2013/03/introduction-to-apache-hbase-snapshots/">source</a></p>
+
+<p><img src="/images/bigdata/hbase_table.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_03.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="regions">
+<a class="anchor" href="#regions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regions</h4>
+<p><img src="/images/bigdata/hbase_regions.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.mapr.com/sites/default/files/blogimages/HBaseArchitecture-Blog-Fig11.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="region-server">
+<a class="anchor" href="#region-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Region server</h4>
+<p><img src="/images/bigdata/hbase_region_server.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_02.jpg">image source</a></p>
+
+<p><img src="/images/bigdata/hbase_table_regionServer.jpg" alt="/images/bigdata/hbase_table_regionServer.jpg"></p>
+
+<p><a href="http://image.slidesharecdn.com/larsgeorge-hw2011-adv-hbase-schema-111110131141-phpapp01/95/hadoop-world-2011-advanced-hbase-schema-design-8-728.jpg?cb=1320931550">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="region-splitting">
+<a class="anchor" href="#region-splitting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Region splitting</h4>
+
+<p><img src="/images/bigdata/hbase_table_splitting.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://i62.tinypic.com/16h0rdk.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="region-splitting-process">
+<a class="anchor" href="#region-splitting-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Region splitting process</h4>
+
+<p><img src="/images/bigdata/hbase_region_splitting.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://hortonworks.com/wp-content/uploads/2013/02/hbase.jpg">image source</a></p>
+
+<ol>
+  <li>RegionServer decides locally to split the region, and prepares the split. As a first step, it creates a znode in zookeeper under /hbase/region-in-transition/region-name in SPLITTING state.</li>
+  <li>The Master learns about this znode, since it has a watcher for the parent region-in-transition znode.</li>
+  <li>RegionServer creates a sub-directory named “.splits” under the parent’s region directory in HDFS.</li>
+  <li>RegionServer closes the parent region, forces a flush of the cache and marks the region as offline in its local data structures. At this point, client requests coming to the parent region will throw NotServingRegionException. The client will retry with some backoff.</li>
+  <li>RegionServer create the region directories under .splits directory, for daughter regions A and B, and creates necessary data structures. Then it splits the store files, in the sense that it creates two Reference files per store file in the parent region. Those reference files will point to the parent regions files.</li>
+  <li>RegionServer creates the actual region directory in HDFS, and moves the reference files for each daughter.</li>
+  <li>RegionServer sends a Put request to the .META. table, and sets the parent as offline in the .META. table and adds information about daughter regions. At this point, there won’t be individual entries in .META. for the daughters. Clients will see the parent region is split if they scan .META., but won’t know about the daughters until they appear in .META.. Also, if this Put to .META. succeeds, the parent will be effectively split. If the RegionServer fails before this RPC succeeds, Master and the next region server opening the region will clean dirty state about the region split. After the .META. update, though, the region split will be rolled-forward by Master.</li>
+  <li>RegionServer opens daughters in parallel to accept writes.</li>
+  <li>RegionServer adds the daughters A and B to .META. together with information that it hosts the regions. After this point, clients can discover the new regions, and issue requests to the new region. Clients cache the .META. entries locally, but when they make requests to the region server or .META., their caches will be invalidated, and they will learn about the new regions from .META..</li>
+  <li>RegionServer updates znode /hbase/region-in-transition/region-name in zookeeper to state SPLIT, so that the master can learn about it. The balancer can freely re-assign the daughter regions to other region servers if it chooses so.</li>
+  <li>After the split, meta and HDFS will still contain references to the parent region. Those references will be removed when compactions in daughter regions rewrite the data files. Garbage collection tasks in the master periodically checks whether the daughter regions still refer to parents files.  If not, the parent region will be removed.</li>
+</ol>
+
+<p><a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/">source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="perfomance-tuning">
+<a class="anchor" href="#perfomance-tuning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Perfomance tuning</h4>
+
+<ul>
+  <li>Compression</li>
+  <li>Filters</li>
+  <li>Counters</li>
+  <li>HBase co-processors</li>
+</ul>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h4 id="snapshots">
+<a class="anchor" href="#snapshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snapshots</h4>
+<p>A snapshot is a set of metadata information that allows an admin to get back to a previous state of the table. A snapshot is not a copy of the table; it’s just a list of file names and doesn’t copy the data. A full snapshot restore means that you get back to the previous “table schema” and you get back your previous data losing any changes made since the snapshot was taken</p>
+
+<ul>
+  <li>Recovery from user/application errors</li>
+  <li>Restore/Recover from a known safe state.</li>
+  <li>View previous snapshots and selectively merge the difference into production.</li>
+  <li>Save a snapshot right before a major application upgrade or change.</li>
+  <li>Auditing and/or reporting on views of data at specific time</li>
+  <li>Capture monthly data for compliance purposes.</li>
+  <li>Run end-of-day/month/quarter reports.</li>
+  <li>Application testing</li>
+  <li>Test schema or application changes on data similar to that in production from a snapshot and then throw it away. For example: take a snapshot, create a new table from the snapshot content (schema plus data), and manipulate the new table by changing the schema, adding and removing rows, and so on. (The original table, the snapshot, and the new table remain mutually independent.)</li>
+  <li>Offloading of work</li>
+  <li>Take a snapshot, export it to another cluster, and run your MapReduce jobs. Since the export snapshot operates at HDFS level, you don’t slow down your main HBase cluster as much as CopyTable does.</li>
+</ul>
+
+<p><a href="http://blog.cloudera.com/blog/2013/03/introduction-to-apache-hbase-snapshots/">source</a></p>
+
+<p><img src="/images/bigdata/hbase_commit_snapshot.png" alt="/images/bigdata/hbase_commit_snapshot.png"></p>
+
+<p><a href="http://blog.cloudera.com/wp-content/uploads/2013/06/matteo2.png">image source</a></p>
+
+<h3 id="phoenix">
+<a class="anchor" href="#phoenix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Phoenix</h3>
+<p>Apache Phoenix enables OLTP and operational analytics in Hadoop for low latency applications by combining the best of both worlds:</p>
+
+<ul>
+  <li>
+    <p>The power of standard SQL and JDBC APIs with full ACID transaction capabilities</p>
+  </li>
+  <li>
+    <p>The flexibility of late-bound, schema-on-read capabilities from the NoSQL world by leveraging HBase as its backing store</p>
+  </li>
+</ul>
+
+<p>Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hive, Pig, Flume, and Map Reduce.</p>
+
+<h4 id="where-it-fits-in">
+<a class="anchor" href="#where-it-fits-in" aria-hidden="true"><span class="octicon octicon-link"></span></a>where it fits in</h4>
+<p><img src="/images/bigdata/phoenix_fits_in.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png">image source</a></p>
+
+<h4 id="architecture-2">
+<a class="anchor" href="#architecture-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h4>
+<p><img src="/images/bigdata/phoenix_fits_in.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="cassandra">
+<a class="anchor" href="#cassandra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cassandra</h3>
+
+<h4 id="data-nodes">
+<a class="anchor" href="#data-nodes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data nodes</h4>
+<p><img src="/images/bigdata/cassandra_data_nodes.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h4 id="read-path-2">
+<a class="anchor" href="#read-path-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read Path</h4>
+
+<p><img src="/images/bigdata/cassandra_read_path.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0903.png">image source</a></p>
+
+<h5 id="within-node">
+<a class="anchor" href="#within-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Within node</h5>
+
+<p><img src="/images/bigdata/cassandra_within_node.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0904.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h4 id="write-path-2">
+<a class="anchor" href="#write-path-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write Path</h4>
+
+<p><img src="/images/bigdata/cassandra_write_path.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://4.bp.blogspot.com/-mb-4_3qLkGk/TrG5kOlMGCI/AAAAAAAAAWY/_DEzto-YwOs/s1600/local.png">image source</a></p>
+
+<p><img src="/images/bigdata/cassandra_write_path2.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0901.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h4 id="partitioning-and-replication">
+<a class="anchor" href="#partitioning-and-replication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Partitioning and Replication</h4>
+<p><img src="/images/bigdata/cassandra_partitioning.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://d42w8nhblerei.cloudfront.net/images/slides/cassandra-1.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h4 id="hashing--tokens">
+<a class="anchor" href="#hashing--tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashing / Tokens</h4>
+
+<p><img src="/images/bigdata/cassandra_hashing.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://d42w8nhblerei.cloudfront.net/images/slides/cassandra-2.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h4 id="security">
+<a class="anchor" href="#security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h4>
+<p><img src="/images/bigdata/cassandra_security.png" alt="/images/lambda_architecture.png">
+<a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_1301.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)&lt;hr&gt;</p>
+
+<h3 id="graph-databases">
+<a class="anchor" href="#graph-databases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Graph databases</h3>
+
+<h4 id="titan">
+<a class="anchor" href="#titan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Titan</h4>
+
+<h5 id="architecture-3">
+<a class="anchor" href="#architecture-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h5>
+<p><img src="/images/bigdata/titan_architecture.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://i.kinja-img.com/gawker-media/image/upload/s--Pe8w2MVb--/c_scale,fl_progressive,q_80,w_800/x5plwhjhgwaahld8or9v.png">image source</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
+   &lt;groupId&gt;com.thinkaurelius.titan&lt;/groupId&gt;
+   &lt;artifactId&gt;titan-core&lt;/artifactId&gt;
+   &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- core, all, cassandra, hbase, berkeleyje, es, lucene --&gt;
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// who is hercules' grandfather?
+g.V.has('name','hercules').out('father').out('father').name
+</code></pre></div></div>
+
+<h4 id="tinkerpop">
+<a class="anchor" href="#tinkerpop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tinkerpop</h4>
+<p>The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for developers to create graph applications by providing APIs and tools that simplify their endeavors.</p>
+
+<h5 id="architecture-4">
+<a class="anchor" href="#architecture-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h5>
+<p><img src="/images/bigdata/tinkerpop_architecture.png" alt="/images/lambda_architecture.png">
+<a href="http://tinkerpop.apache.org/docs/current/images/provider-integration.png">image source</a></p>
+
+<h5 id="graph-landscape">
+<a class="anchor" href="#graph-landscape" aria-hidden="true"><span class="octicon octicon-link"></span></a>Graph landscape</h5>
+
+<p><img src="/images/bigdata/tinkerpop_graph_landscape.png" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/graphprocessingwithapachetinkerpop-160512003044/95/graph-processing-with-apache-tinkerpop-9-638.jpg?cb=1463410962">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h5 id="getting-started---example-graph">
+<a class="anchor" href="#getting-started---example-graph" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started - Example graph</h5>
+
+<p><img src="/images/bigdata/tinkerpop_getting_started.jpg" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/graphprocessingwithapachetinkerpop-160512003044/95/graph-processing-with-apache-tinkerpop-9-638.jpg?cb=1463410962">image source</a></p>
+
+<p><a href="http://tinkerpop.apache.org/docs/current/tutorials/getting-started/">Gremlin get started</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="comparisons">
+<a class="anchor" href="#comparisons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comparisons</h3>
+
+<h4 id="cassandra-vs-hbase-vs-mongodb-vs-couchbase">
+<a class="anchor" href="#cassandra-vs-hbase-vs-mongodb-vs-couchbase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cassandra vs HBase vs MongoDB vs Couchbase</h4>
+
+<p><img src="/images/bigdata/cassandra_comparison.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://www.datastax.com/wp-content/themes/datastax-2014-08/images/nosql/chart-load-process-v3.jpg">image source</a></p>
+
+<p><img src="/images/bigdata/cassandra_comparison3.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://planetcassandra.org/wp-content/uploads/2015/03/Benchmark-Page-6-Insert-Mostly-Workload.png">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h5 id="update">
+<a class="anchor" href="#update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update</h5>
+<p><img src="/images/bigdata/cassandra_comparison_update.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://jaxenter.com/wp-content/uploads/2014/02/sergey-3.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h5 id="cap-continuum">
+<a class="anchor" href="#cap-continuum" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cap Continuum</h5>
+<p><img src="/images/bigdata/cap_continuum.png" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781449399764/httpatomoreillycomsourceoreillyimages715809.png">image source</a></p>
+
+<p>In this depiction, relational databases are on the line between Consistency and Availability, which means that they can fail in the event of a network failure (including a cable breaking). This is typically achieved by defining a single master server, which could itself go down, or an array of servers that simply don’t have sufficient mechanisms built in to continue functioning in the case of network partitions.</p>
+
+<p>Graph databases such as Neo4J and the set of databases derived at least in part from the design of Google’s Bigtable database (such as MongoDB, HBase, Hypertable, and Redis) all are focused slightly less on Availability and more on ensuring Consistency and Partition Tolerance.</p>
+
+<p>Finally, the databases derived from Amazon’s Dynamo design include Cassandra, Project Voldemort, CouchDB, and Riak. These are more focused on Availability and Partition-Tolerance.</p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="sql-on-hadoop">
+<a class="anchor" href="#sql-on-hadoop" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQL on hadoop</h1>
+
+<h2 id="bigsql">
+<a class="anchor" href="#bigsql" aria-hidden="true"><span class="octicon octicon-link"></span></a>BigSQL</h2>
+
+<h3 id="architecture-5">
+<a class="anchor" href="#architecture-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h3>
+<p><img src="/images/bigdata/bigsql_architecture.gif" alt="/images/lambda_architecture.png">
+<a href="https://www.ibm.com/support/knowledgecenter/SSERCR_1.0.0/com.ibm.swg.im.infosphere.biginsights.analyze.doc/images/bigSQL%20tech%20overview.gif">image source</a></p>
+
+<p><img src="/images/bigdata/bigsql_architecture2.jpg" alt="/images/lambda_architecture.png">
+<a href="http://www.ibmbigdatahub.com/sites/default/files/public_images/Slide1.JPG">image source</a></p>
+
+<h2 id="hive">
+<a class="anchor" href="#hive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hive</h2>
+
+<p><img src="/images/bigdata/hive_architecture.jpg" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/sparkandshark-120620130508-phpapp01/95/spark-and-shark-22-728.jpg?cb=1340197567">image source</a></p>
+
+<p><img src="/images/bigdata/hive_architecture2.jpg" alt="/images/">
+<a href="http://images.slideplayer.com/24/7523812/slides/slide_5.jpg">image source</a></p>
+
+<p><img src="" alt="">
+(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="hiveql">
+<a class="anchor" href="#hiveql" aria-hidden="true"><span class="octicon octicon-link"></span></a>HiveQL</h3>
+
+<h3 id="ddl">
+<a class="anchor" href="#ddl" aria-hidden="true"><span class="octicon octicon-link"></span></a>DDL</h3>
+
+<h3 id="hcatalog">
+<a class="anchor" href="#hcatalog" aria-hidden="true"><span class="octicon octicon-link"></span></a>HCatalog</h3>
+
+<ul>
+  <li>Built on top of Hive Metastore</li>
+  <li>Incorporates components from Hive DDL</li>
+</ul>
+
+<h3 id="web-interface">
+<a class="anchor" href="#web-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web Interface</h3>
+
+<h4 id="hive-web-interface">
+<a class="anchor" href="#hive-web-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hive Web Interface</h4>
+
+<p>Functions:</p>
+
+<ul>
+  <li>Schema browsing</li>
+  <li>Detached Query execution</li>
+  <li>No local installation</li>
+</ul>
+
+<h4 id="webhcat">
+<a class="anchor" href="#webhcat" aria-hidden="true"><span class="octicon octicon-link"></span></a>WebHCat</h4>
+
+<p>Functions:</p>
+
+<ul>
+  <li>applications can make HTTP requests to access the Hive metastore</li>
+  <li>create or queue Hive queries and commands</li>
+  <li>Pig jobs</li>
+  <li>MapReduce or Yarn jobs</li>
+</ul>
+
+<h2 id="tez">
+<a class="anchor" href="#tez" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tez</h2>
+<p>Apache Tez is part of the Stinger initiative.
+Tez generalizes the MapReduce paradigm to a more powerful framework based on expressing computations as a dataflow graph. Tez exists to address some of the limitations of MapReduce. For example, in a typical MapReduce, a lot of temporary data is stored (such as each mapper’s output, which is a disk I/O), which is an overhead. In the case of Tez, this disk I/O of temporary data is saved, thereby resulting in higher performance compared to the MapReduce model.</p>
+
+<p>Tez is a framework for purpose-built tools such as Hive and Pig.</p>
+
+<p><img src="/images/bigdata/tez_idea2.jpg" alt="/images/lambda_architecture.png">
+<a href="https://www.safaribooksonline.com/library/view/yarn-essentials/9781784391737/graphics/1737OS_07_27.jpg">image source</a></p>
+
+<p><img src="/images/bigdata/tez_idea.jpg" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/w-235p-hall1-pandey-140617161536-phpapp01/95/hive-tez-a-performance-deep-dive-9-638.jpg?cb=1403021822">image source</a></p>
+
+<p><img src="/images/bigdata/tez_idea3.jpg" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/sparkorhadoop-isitaneither-orproposition-slimbaltagi-150313094837-conversion-gate01/95/spark-or-hadoop-is-it-an-eitheror-proposition-by-slim-baltagi-29-638.jpg?cb=1426240274">image source</a></p>
+
+<h3 id="tez-vs-spark">
+<a class="anchor" href="#tez-vs-spark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tez vs Spark</h3>
+
+<p><a href="https://www.xplenty.com/blog/2015/01/apache-spark-vs-tez-comparison/">Tez vs Spark</a>
+<a href="https://ci.apache.org/projects/flink/flink-docs-release-0.9/setup/flink_on_tez.html">Flink on Tez</a></p>
+
+<h3 id="hive-with-llap-live-long-and-process">
+<a class="anchor" href="#hive-with-llap-live-long-and-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hive with LLAP (Live Long and Process)</h3>
+<p>With 2.1 Hive  introduces LLAP, a daemon layer for sub-second queries. LLAP combines persistent query servers and optimized in-memory caching that allows Hive to launch queries instantly and avoids unnecessary disk I/O. For more information see <a href="http://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/">http://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/</a>.</p>
+
+<p><img src="/images/bigdata/tez_llap.png" alt="/images/lambda_architecture.png">
+<a href="http://hortonworks.com/wp-content/uploads/2016/07/Hive-2.1-blog-MR-vs-Tez-vs-LLAP.png">image source</a></p>
+
+<h3 id="mapreduce-vs-tez-vs-tez-llap">
+<a class="anchor" href="#mapreduce-vs-tez-vs-tez-llap" aria-hidden="true"><span class="octicon octicon-link"></span></a>MapReduce vs Tez vs Tez LLAP</h3>
+<p>Tez LLAP process compared to Tez execution process and MapReduce process
+<img src="/images/bigdata/llap_architecture.png" alt="/images/lambda_architecture.png">
+<a href="http://hortonworks.com/wp-content/uploads/2016/07/Hive-2.1-blog-LLAP-Architecture.png">image source</a></p>
+
+<h2 id="drill">
+<a class="anchor" href="#drill" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drill</h2>
+
+<ul>
+  <li>not tied into Hadoop</li>
+  <li>more flexible query &amp; execution layer</li>
+  <li>still in incubation</li>
+</ul>
+
+<h2 id="impala">
+<a class="anchor" href="#impala" aria-hidden="true"><span class="octicon octicon-link"></span></a>Impala</h2>
+
+<ul>
+  <li>dependent on Hadoop</li>
+  <li>dependent on Hive Metastore</li>
+  <li>rumour to not fall back to disk when memory exceeded</li>
+</ul>
+
+<h2 id="comparison">
+<a class="anchor" href="#comparison" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comparison</h2>
+
+<h3 id="impala-hive-stinger-pivotal-teradata-presto">
+<a class="anchor" href="#impala-hive-stinger-pivotal-teradata-presto" aria-hidden="true"><span class="octicon octicon-link"></span></a>Impala, Hive, Stinger, Pivotal, Teradata, Presto</h3>
+<p><img src="/images/bigdata/nosql_comparison.jpg" alt="/images/lambda_architecture.png">
+<a href="http://image.slidesharecdn.com/bigsqlcompetitivesummary2014-aug-20-140820132237-phpapp01/95/big-sql-competitive-summary-vendor-landscape-8-638.jpg?cb=1408971625">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="benchmark-impala-hive-spark">
+<a class="anchor" href="#benchmark-impala-hive-spark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark: Impala, Hive, Spark</h3>
+<p><img src="/images/bigdata/nosql_comparison2.jpg" alt="/images/lambda_architecture.png">
+<a href="https://integratc.files.wordpress.com/2015/04/which-hadoop-table-4.jpg">source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h3 id="benchmark-impala-hive-on-tez">
+<a class="anchor" href="#benchmark-impala-hive-on-tez" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark: Impala, Hive-on-Tez</h3>
+<p><img src="/images/bigdata/impala_vs_hize_on_tez.png" alt="/images/lambda_architecture.png">
+<a href="http://hortonworks.com/wp-content/uploads/2015/09/fig2_impala_vs_hive.png">source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h2 id="overview-1">
+<a class="anchor" href="#overview-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<p><img src="/images/bigdata/nosql_overview.jpg" alt="/images/lambda_architecture.png"></p>
+
+<p><a href="http://wwwcdn2.actian.com/wp-content/uploads/2014/12/SQL-comparison-chart.jpg">image source</a></p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+
+  </div><a class="u-url" href="/blog/bigdata/2016/09/14/big-data-storage.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>blog posts and code snippets.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fabsta" title="fabsta"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fabschreiber" title="fabschreiber"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
