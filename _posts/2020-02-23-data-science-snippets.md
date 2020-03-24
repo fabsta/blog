@@ -9,58 +9,6 @@ title: Pandas cheat sheet for data science
 # Pandas cheat sheet for data science
 
 
-- [Pandas cheat sheet for data science](#pandas-cheat-sheet-for-data-science)
-- [Statistics](#statistics)
-  * [Multi-variate analysis](#multi-variate-analysis)
-  * [Feature understanding](#feature-understanding)
-- [Preliminaries](#preliminaries)
-- [Import](#import)
-- [Input Output](#input-output)
-  * [Input](#input)
-    + [Reading files](#reading-files)
-  * [Output](#output)
-- [Exploration](#exploration)
-- [Selecting](#selecting)
-  * [Summary](#summary)
-  * [Whole DataFrame](#whole-dataframe)
-  * [Columns](#columns)
-  * [Rows](#rows)
-  * [Cells](#cells)
-- [Data wrangling](#data-wrangling)
-  * [Merge Join](#merge-join)
-  * [GroupBy](#groupby)
-  * [Dates](#dates)
-  * [Missing data](#missing-data)
-  * [Categorical Data](#categorical-data)
-  * [Manipulations](#manipulations)
-    + [Method chaining](#method-chaining)
-    + [Binning](#binning)
-  * [fast append to dataframe](#fast-append-to-dataframe)
-- [Performance](#performance)
-  * [Reshaping dataframe](#reshaping-dataframe)
-  * [Concat vs. append](#concat-vs-append)
-  * [Dataframe: iterate rows](#dataframe--iterate-rows)
-    + [Useful links](#useful-links)
-  * [Parallel data structures](#parallel-data-structures)
-- [Jupyter notebooks](#jupyter-notebooks)
-  * [Notebooks in production](#notebooks-in-production)
-    + [workflow](#workflow)
-    + [Directory structure](#directory-structure)
-    + [Further link](#further-link)
-    + [jupyter notebook template](#jupyter-notebook-template)
-      - [header section](#header-section)
-    + [Orchestration](#orchestration)
-    + [code snippets](#code-snippets)
-  * [Timing and Profiling](#timing-and-profiling)
-    + [Testing](#testing)
-    + [Qgrid](#qgrid)
-    + [Debugging conda](#debugging-conda)
-    + [Running Jupyter](#running-jupyter)
-    + [installing kernels](#installing-kernels)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 
 # Statistics
 
