@@ -4,6 +4,7 @@ layout: post
 description: Python code snippets for data science.
 categories: [markdown]
 title: Pandas cheat sheet for data science
+---
 
 # Pandas cheat sheet for data science
 
