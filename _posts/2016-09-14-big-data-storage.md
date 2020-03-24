@@ -20,14 +20,14 @@ categories: [BigData]
 
 ### Architecture
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hdfs_architecture.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_architecture.jpg)
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_02.jpg)
 
 (<a href="#top">Back to top</a>)
 <hr>
 
 ### Datanode
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hdfs_datanode.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_datanode.jpg)
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_03.jpg)
 
 (<a href="#top">Back to top</a>)
@@ -41,12 +41,12 @@ In order for the Standby node to keep its state synchronized with the Active nod
 * Standby node can read edits from JNs and is constantly watching for changes in edit log
 
 ### Read Path
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hdfs_read_path.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_read_path.jpg)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_04.jpg)
 
 1. The client using a Distributed FileSystem object of Hadoop client API calls open() which initiate the read request.
-2. Distributed FileSystem connects with NameNode. NameNode identifies the block locations of the file to be read and in which DataNodes the block is located. 
+2. Distributed FileSystem connects with NameNode. NameNode identifies the block locations of the file to be read and in which DataNodes the block is located.
 3. NameNode then sends the list of DataNodes in order of nearest DataNodes from the client.
 4. Distributed FileSystem then creates FSDataInputStream objects, which, in turn, wrap a DFSInputStream, which can connect to the DataNodes selected and get the block, and return to the client. The client initiates the transfer by calling the read() of FSDataInputStream.
 5. FSDataInputStream repeatedly calls the read() method to get the block data.
@@ -59,7 +59,7 @@ In order for the Standby node to keep its state synchronized with the Active nod
 
 ### Write Path
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hdfs_write_path.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_write_path.jpg)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_05.jpg)
 
@@ -76,7 +76,7 @@ In order for the Standby node to keep its state synchronized with the Active nod
 
 ### HDFS federation
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hdfs_federation.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_federation.jpg)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_06.jpg)
 
@@ -85,8 +85,8 @@ In order for the Standby node to keep its state synchronized with the Active nod
 
 #### Active/passive Namenode
 
-* Active Namenode is the one who is writing edits to JournalNodes. 
-* DataNodes know about location of both Namenodes, they send block location information and heartbeats to both. 
+* Active Namenode is the one who is writing edits to JournalNodes.
+* DataNodes know about location of both Namenodes, they send block location information and heartbeats to both.
 * Passive Namenode performs checkpoints (of namespace state), no Secondary NameNode required.
 
 (<a href="#top">Back to top</a>)
@@ -101,7 +101,7 @@ In general, there are two approaches
 
 ##### Shared Storage using NFS
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/shared-edit-log1.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/shared-edit-log1.png)
 
 [image source](https://hadoopabcd.files.wordpress.com/2015/02/shared-edit-log1.png?w=512&h=304)
 
@@ -110,7 +110,7 @@ In general, there are two approaches
 
 ##### Quorum-based Storage
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/quorum-journal-without-zk.png)
+![blog/images/lambda_architecture.png](blog/images/quorum-journal-without-zk.png)
 
 [image source](https://hadoopabcd.files.wordpress.com/2015/02/quorum-journal-without-zk.png?w=663&h=338)
 
@@ -140,7 +140,7 @@ ZKFC is responsible for:
 ### Concepts
 
 #### Row- vs. column-oriented
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/row_column_oriented.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/row_column_oriented.png)
 
 [image source](http://1.bp.blogspot.com/_j6mB7TMmJJY/TK1npAatLqI/AAAAAAAAAd4/TscPInSeUoo/s1600/p1.png)
 
@@ -149,7 +149,7 @@ ZKFC is responsible for:
 
 ### HBase
 
-#### Overview 
+#### Overview
 * Sparse: HBase is columnar and partition oriented. Usually, a record may have many columns and many of them may have null data, or the values may be repeated. HBase can efficiently and effectively save the space in sparse data.
 * Distributed: Data is stored in multiple nodes, scattered across the cluster.
 * Persistent: Data is written and saved in the cluster.
@@ -178,10 +178,10 @@ ZKFC is responsible for:
 
 #### Schema design
 
-##### Sparse 
+##### Sparse
 “Sparse” means that for any given row you can have one or more columns, but each row doesn’t need to have all the same columns as other rows like it (as in a relational model)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_data_model.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_data_model.png)
 
 [image source](http://www.ymc.ch/wp-content/uploads/2014/02/HBase-Data-Model.png)
 
@@ -189,7 +189,7 @@ ZKFC is responsible for:
 <hr>
 
 #### Write Path
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_write_path.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_write_path.jpg)
 
 [image source](http://image.slidesharecdn.com/storageforbigdata-140207132641-phpapp01/95/storage-systems-for-big-data-hdfs-hbase-and-intro-to-kv-store-redis-36-638.jpg?cb=1391782647)
 
@@ -203,7 +203,7 @@ ZKFC is responsible for:
 <hr>
 
 #### Read Path
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_read_path.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_read_path.jpg)
 
 [image source](http://image.slidesharecdn.com/dwudevqos0kkksaqhvaj-signature-db258e0cddfb79ee29c1770895f09e97072db8b5ff7ee174f82789933a229c35-poli-140804080932-phpapp01/95/hbase-application-performance-improvement-16-638.jpg?cb=1432894628)
 
@@ -213,15 +213,15 @@ ZKFC is responsible for:
 4. If the data is not present in the BlockCache, then it is pulled from the Region and serviced. Now the data is cached in MemStore and BlockCache..
 
 #### Architecture
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_architecture.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_architecture.png)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-the-definitive/9781449398644/httpatomoreillycomsourceoreillyimages684893.png)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_architecture2.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_architecture2.png)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_01.jpg)
 
-![{{base}}/images/bigdata/hbase_architecture_complex.png]({{base}}/images/bigdata/hbase_architecture_complex.png)
+![blog/images/bigdata/hbase_architecture_complex.png](blog/images/bigdata/hbase_architecture_complex.png)
 
 [image source](https://bighadoop.files.wordpress.com/2014/05/hbase-architecture.png)
 
@@ -240,7 +240,7 @@ An HBase table comprises a set of metadata information and a set of key/value pa
 
 [source](http://blog.cloudera.com/blog/2013/03/introduction-to-apache-hbase-snapshots/)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_table.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_table.jpg)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_03.jpg)
 
@@ -250,7 +250,7 @@ An HBase table comprises a set of metadata information and a set of key/value pa
 
 
 #### Regions
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_regions.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_regions.png)
 
 [image source](https://www.mapr.com/sites/default/files/blogimages/HBaseArchitecture-Blog-Fig11.png)
 
@@ -258,11 +258,11 @@ An HBase table comprises a set of metadata information and a set of key/value pa
 <hr>
 
 #### Region server
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_region_server.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_region_server.jpg)
 
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/B03765_05_02.jpg)
 
-![{{base}}/images/bigdata/hbase_table_regionServer.jpg]({{base}}/images/bigdata/hbase_table_regionServer.jpg)
+![blog/images/bigdata/hbase_table_regionServer.jpg](blog/images/bigdata/hbase_table_regionServer.jpg)
 
 [image source](http://image.slidesharecdn.com/larsgeorge-hw2011-adv-hbase-schema-111110131141-phpapp01/95/hadoop-world-2011-advanced-hbase-schema-design-8-728.jpg?cb=1320931550)
 
@@ -272,7 +272,7 @@ An HBase table comprises a set of metadata information and a set of key/value pa
 
 #### Region splitting
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_table_splitting.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_table_splitting.jpg)
 
 [image source](http://i62.tinypic.com/16h0rdk.jpg)
 
@@ -281,7 +281,7 @@ An HBase table comprises a set of metadata information and a set of key/value pa
 
 #### Region splitting process
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hbase_region_splitting.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hbase_region_splitting.jpg)
 
 [image source](http://hortonworks.com/wp-content/uploads/2013/02/hbase.jpg)
 
@@ -331,7 +331,7 @@ A snapshot is a set of metadata information that allows an admin to get back to 
 
 [source](http://blog.cloudera.com/blog/2013/03/introduction-to-apache-hbase-snapshots/)
 
-![{{base}}/images/bigdata/hbase_commit_snapshot.png]({{base}}/images/bigdata/hbase_commit_snapshot.png)
+![blog/images/bigdata/hbase_commit_snapshot.png](blog/images/bigdata/hbase_commit_snapshot.png)
 
 [image source](http://blog.cloudera.com/wp-content/uploads/2013/06/matteo2.png)
 
@@ -339,19 +339,19 @@ A snapshot is a set of metadata information that allows an admin to get back to 
 ### Phoenix
 Apache Phoenix enables OLTP and operational analytics in Hadoop for low latency applications by combining the best of both worlds:
 
-* The power of standard SQL and JDBC APIs with full ACID transaction capabilities 
+* The power of standard SQL and JDBC APIs with full ACID transaction capabilities
 
 * The flexibility of late-bound, schema-on-read capabilities from the NoSQL world by leveraging HBase as its backing store
 
 Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hive, Pig, Flume, and Map Reduce.
 
 #### where it fits in
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/phoenix_fits_in.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/phoenix_fits_in.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png)
 
 #### Architecture
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/phoenix_fits_in.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/phoenix_fits_in.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png)
 
@@ -362,7 +362,7 @@ Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hiv
 
 
 #### Data nodes
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_data_nodes.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_data_nodes.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0604.png)
 
@@ -370,13 +370,13 @@ Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hiv
 
 #### Read Path
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_read_path.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_read_path.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0903.png)
 
 ##### Within node
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_within_node.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_within_node.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0904.png)
 
@@ -384,19 +384,19 @@ Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hiv
 
 #### Write Path
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_write_path.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_write_path.png)
 
 [image source](http://4.bp.blogspot.com/-mb-4_3qLkGk/TrG5kOlMGCI/AAAAAAAAAWY/_DEzto-YwOs/s1600/local.png)
 
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_write_path2.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_write_path2.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_0901.png)
 
 (<a href="#top">Back to top</a>)<hr>
 
 #### Partitioning and Replication
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_partitioning.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_partitioning.png)
 
 [image source](http://d42w8nhblerei.cloudfront.net/images/slides/cassandra-1.png)
 
@@ -404,14 +404,14 @@ Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hiv
 
 #### Hashing / Tokens
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_hashing.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_hashing.png)
 
 [image source](http://d42w8nhblerei.cloudfront.net/images/slides/cassandra-2.png)
 
 (<a href="#top">Back to top</a>)<hr>
 
 #### Security
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_security.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_security.png)
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781491933657/assets/ctdg_1301.png)
 
 
@@ -422,7 +422,7 @@ Apache Phoenix is fully integrated with other Hadoop products such as Spark, Hiv
 #### Titan
 
 ##### Architecture
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/titan_architecture.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/titan_architecture.png)
 
 [image source](https://i.kinja-img.com/gawker-media/image/upload/s--Pe8w2MVb--/c_scale,fl_progressive,q_80,w_800/x5plwhjhgwaahld8or9v.png)
 
@@ -445,13 +445,13 @@ g.V.has('name','hercules').out('father').out('father').name
 The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for developers to create graph applications by providing APIs and tools that simplify their endeavors.
 
 ##### Architecture
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tinkerpop_architecture.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tinkerpop_architecture.png)
 [image source](http://tinkerpop.apache.org/docs/current/images/provider-integration.png)
 
 
 ##### Graph landscape
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tinkerpop_graph_landscape.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tinkerpop_graph_landscape.png)
 [image source](http://image.slidesharecdn.com/graphprocessingwithapachetinkerpop-160512003044/95/graph-processing-with-apache-tinkerpop-9-638.jpg?cb=1463410962)
 
 (<a href="#top">Back to top</a>)
@@ -460,7 +460,7 @@ The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for de
 
 ##### Getting started - Example graph
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tinkerpop_getting_started.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tinkerpop_getting_started.jpg)
 [image source](http://image.slidesharecdn.com/graphprocessingwithapachetinkerpop-160512003044/95/graph-processing-with-apache-tinkerpop-9-638.jpg?cb=1463410962)
 
 [Gremlin get started](http://tinkerpop.apache.org/docs/current/tutorials/getting-started/)
@@ -472,11 +472,11 @@ The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for de
 
 #### Cassandra vs HBase vs MongoDB vs Couchbase
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_comparison.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_comparison.jpg)
 
 [image source](http://www.datastax.com/wp-content/themes/datastax-2014-08/images/nosql/chart-load-process-v3.jpg)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_comparison3.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_comparison3.png)
 
 [image source](http://planetcassandra.org/wp-content/uploads/2015/03/Benchmark-Page-6-Insert-Mostly-Workload.png)
 
@@ -485,7 +485,7 @@ The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for de
 
 
 ##### Update
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cassandra_comparison_update.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cassandra_comparison_update.jpg)
 
 [image source](http://jaxenter.com/wp-content/uploads/2014/02/sergey-3.jpg)
 
@@ -493,7 +493,7 @@ The goal of TinkerPop, as a Graph Computing Framework, is to make it easy for de
 <hr>
 
 ##### Cap Continuum
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/cap_continuum.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/cap_continuum.png)
 
 [image source](https://www.safaribooksonline.com/library/view/cassandra-the-definitive/9781449399764/httpatomoreillycomsourceoreillyimages715809.png)
 
@@ -511,20 +511,20 @@ Finally, the databases derived from Amazon’s Dynamo design include Cassandra, 
 ## BigSQL
 
 ### Architecture
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/bigsql_architecture.gif)
+![blog/images/lambda_architecture.png](blog/images/bigdata/bigsql_architecture.gif)
 [image source](https://www.ibm.com/support/knowledgecenter/SSERCR_1.0.0/com.ibm.swg.im.infosphere.biginsights.analyze.doc/images/bigSQL%20tech%20overview.gif)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/bigsql_architecture2.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/bigsql_architecture2.jpg)
 [image source](http://www.ibmbigdatahub.com/sites/default/files/public_images/Slide1.JPG)
 
 
 
 ## Hive
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/hive_architecture.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/hive_architecture.jpg)
 [image source](http://image.slidesharecdn.com/sparkandshark-120620130508-phpapp01/95/spark-and-shark-22-728.jpg?cb=1340197567)
 
-![{{base}}/images/]({{base}}/images/bigdata/hive_architecture2.jpg)
+![blog/images/](blog/images/bigdata/hive_architecture2.jpg)
 [image source](http://images.slideplayer.com/24/7523812/slides/slide_5.jpg)
 
 ![]()
@@ -570,14 +570,14 @@ Tez generalizes the MapReduce paradigm to a more powerful framework based on exp
 
 Tez is a framework for purpose-built tools such as Hive and Pig.
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tez_idea2.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tez_idea2.jpg)
 [image source](https://www.safaribooksonline.com/library/view/yarn-essentials/9781784391737/graphics/1737OS_07_27.jpg)
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tez_idea.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tez_idea.jpg)
 [image source](http://image.slidesharecdn.com/w-235p-hall1-pandey-140617161536-phpapp01/95/hive-tez-a-performance-deep-dive-9-638.jpg?cb=1403021822)
 
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tez_idea3.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tez_idea3.jpg)
 [image source](http://image.slidesharecdn.com/sparkorhadoop-isitaneither-orproposition-slimbaltagi-150313094837-conversion-gate01/95/spark-or-hadoop-is-it-an-eitheror-proposition-by-slim-baltagi-29-638.jpg?cb=1426240274)
 
 
@@ -589,13 +589,13 @@ Tez is a framework for purpose-built tools such as Hive and Pig.
 ### Hive with LLAP (Live Long and Process)
 With 2.1 Hive  introduces LLAP, a daemon layer for sub-second queries. LLAP combines persistent query servers and optimized in-memory caching that allows Hive to launch queries instantly and avoids unnecessary disk I/O. For more information see [http://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/](http://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/tez_llap.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/tez_llap.png)
 [image source](http://hortonworks.com/wp-content/uploads/2016/07/Hive-2.1-blog-MR-vs-Tez-vs-LLAP.png)
 
 
 ### MapReduce vs Tez vs Tez LLAP
 Tez LLAP process compared to Tez execution process and MapReduce process
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/llap_architecture.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/llap_architecture.png)
 [image source](http://hortonworks.com/wp-content/uploads/2016/07/Hive-2.1-blog-LLAP-Architecture.png)
 
 
@@ -612,10 +612,10 @@ Tez LLAP process compared to Tez execution process and MapReduce process
 * rumour to not fall back to disk when memory exceeded
 
 
-## Comparison 
+## Comparison
 
 ### Impala, Hive, Stinger, Pivotal, Teradata, Presto
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/nosql_comparison.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/nosql_comparison.jpg)
 [image source](http://image.slidesharecdn.com/bigsqlcompetitivesummary2014-aug-20-140820132237-phpapp01/95/big-sql-competitive-summary-vendor-landscape-8-638.jpg?cb=1408971625)
 
 (<a href="#top">Back to top</a>)
@@ -623,7 +623,7 @@ Tez LLAP process compared to Tez execution process and MapReduce process
 
 
 ### Benchmark: Impala, Hive, Spark
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/nosql_comparison2.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/nosql_comparison2.jpg)
 [source](https://integratc.files.wordpress.com/2015/04/which-hadoop-table-4.jpg)
 
 (<a href="#top">Back to top</a>)
@@ -631,7 +631,7 @@ Tez LLAP process compared to Tez execution process and MapReduce process
 
 
 ### Benchmark: Impala, Hive-on-Tez
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/impala_vs_hize_on_tez.png)
+![blog/images/lambda_architecture.png](blog/images/bigdata/impala_vs_hize_on_tez.png)
 [source](http://hortonworks.com/wp-content/uploads/2015/09/fig2_impala_vs_hive.png)
 
 
@@ -639,7 +639,7 @@ Tez LLAP process compared to Tez execution process and MapReduce process
 <hr>
 
 ## Overview
-![{{base}}/images/lambda_architecture.png]({{base}}/images/bigdata/nosql_overview.jpg)
+![blog/images/lambda_architecture.png](blog/images/bigdata/nosql_overview.jpg)
 
 [image source](http://wwwcdn2.actian.com/wp-content/uploads/2014/12/SQL-comparison-chart.jpg)
 
