@@ -4,10 +4,17 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+I am a data scientist and bioinformatician by training. 
+My research interest includes bioinformatics, AI for drug discovery, precision medicine, computer vision applications of Deep Learning and model interpretability.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+## Interests
+* Artificial Intelligence
+* Computational Biology
+* Drug discovery
+* AI for social good
 
+## Education
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+* PhD in Bioinformatics, 2010, GGNB Goettingen
+* MSc in Bioinformatics, 2007, Georg August University Goettingen
+* BSc in Bioinformatics, 2005, Georg August University Goettingen
