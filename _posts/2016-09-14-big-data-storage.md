@@ -20,7 +20,7 @@ categories: [BigData]
 
 ### Architecture
 
-![blog/images/lambda_architecture.png](blog/images/bigdata/hdfs_architecture.jpg)
+![/blog/images/lambda_architecture.png](/blog/images/bigdata/hdfs_architecture.jpg)
 [image source](https://www.safaribooksonline.com/library/view/hadoop-essentials/9781784396688/graphics/6688OT_03_02.jpg)
 
 (<a href="#top">Back to top</a>)
