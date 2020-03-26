@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python cheat sheet | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python cheat sheet" />
+<meta property="og:description" content="Python cheat sheet" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python cheat sheet","description":"Python cheat sheet","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/markdown/2020/03/03/python-cheat-sheet.html"},"@type":"BlogPosting","url":"/blog/markdown/2020/03/03/python-cheat-sheet.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python cheat sheet | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python cheat sheet" />
+<meta property="og:description" content="Python cheat sheet" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python cheat sheet","description":"Python cheat sheet","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/markdown/2020/03/03/python-cheat-sheet.html"},"@type":"BlogPosting","url":"/blog/markdown/2020/03/03/python-cheat-sheet.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Fabian&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">👤️ About Me</a><a class="page-link" href="/blog/search/">🔎️ Search</a><a class="page-link" href="/blog/snippets/">Code snippets</a><a class="page-link" href="/blog/categories/">📂️ Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python cheat sheet</h1><p class="page-description">Python cheat sheet</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-03T00:00:00-06:00" itemprop="datePublished">
+        Mar 3, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      20 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#preliminaries">Preliminaries</a></li>
+<li class="toc-entry toc-h1"><a href="#primitive-datatypes-and-operators">Primitive Datatypes and Operators</a></li>
+<li class="toc-entry toc-h1"><a href="#strings">Strings</a></li>
+<li class="toc-entry toc-h1"><a href="#variables-and-collections">Variables and Collections</a></li>
+<li class="toc-entry toc-h1"><a href="#lists">Lists</a></li>
+<li class="toc-entry toc-h1"><a href="#tuples">Tuples</a></li>
+<li class="toc-entry toc-h1"><a href="#dictionary">Dictionary</a></li>
+<li class="toc-entry toc-h1"><a href="#sets">Sets</a></li>
+<li class="toc-entry toc-h1"><a href="#control-flow">Control Flow</a></li>
+<li class="toc-entry toc-h1"><a href="#exceptions">Exceptions</a></li>
+<li class="toc-entry toc-h1"><a href="#functions">Functions</a></li>
+<li class="toc-entry toc-h1"><a href="#classes">Classes</a></li>
+<li class="toc-entry toc-h1"><a href="#modules">Modules</a></li>
+<li class="toc-entry toc-h1"><a href="#advanced">Advanced</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#generators">Generators</a></li>
+<li class="toc-entry toc-h2"><a href="#decorators">Decorators</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#files">Files</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#command-line">Command line</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#printing">Printing</a></li>
+<li class="toc-entry toc-h1"><a href="#images">Images</a></li>
+</ul><h1 id="preliminaries">
+<a class="anchor" href="#preliminaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preliminaries</h1>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+
+<p>It is also possible to write Python code which is compatible with Python 2.7 and 3.x at the same time, using Python <strong>future</strong> imports. <strong>future</strong> imports allow you to write Python 3 code that will run on Python 2, so check out the Python 3 tutorial.</p>
+
+<p>comments start with a number symbol.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" Multiline strings can be written
+    using three "s, and are often used
+    as comments
+"""</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="primitive-datatypes-and-operators">
+<a class="anchor" href="#primitive-datatypes-and-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primitive Datatypes and Operators</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># You have numbers
+</span><span class="mi">3</span>  <span class="c1"># =&gt; 3
+</span></code></pre></div></div>
+
+<p>Math</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Math is what you would expect
+</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># =&gt; 2
+</span><span class="mi">8</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># =&gt; 7
+</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># =&gt; 20
+</span><span class="mi">35</span> <span class="o">/</span> <span class="mi">5</span>  <span class="c1"># =&gt; 7
+</span>
+<span class="c1"># Division is a bit tricky. It is integer division and floors the results automatically.
+</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># =&gt; 2
+</span>
+<span class="c1"># To fix division we need to learn about floats.
+</span><span class="mf">2.0</span>     <span class="c1"># This is a float
+</span><span class="mf">11.0</span> <span class="o">/</span> <span class="mf">4.0</span>  <span class="c1"># =&gt; 2.75 ahhh...much better
+</span>
+<span class="c1"># Result of integer division truncated down both for positive and negative.
+</span><span class="mi">5</span> <span class="o">//</span> <span class="mi">3</span>     <span class="c1"># =&gt; 1
+</span><span class="mf">5.0</span> <span class="o">//</span> <span class="mf">3.0</span> <span class="c1"># =&gt; 1.0 # works on floats too
+</span><span class="o">-</span><span class="mi">5</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># =&gt; -2
+</span><span class="o">-</span><span class="mf">5.0</span> <span class="o">//</span> <span class="mf">3.0</span> <span class="c1"># =&gt; -2.0
+</span>
+<span class="c1"># Note that we can also import division module(Section 6 Modules) to carry out normal division with just one '/'.
+</span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="mi">11</span><span class="o">/</span><span class="mi">4</span>    <span class="c1"># =&gt; 2.75  ...normal division
+</span><span class="mi">11</span><span class="o">//</span><span class="mi">4</span>   <span class="c1"># =&gt; 2 ...floored division
+# Modulo operation
+</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span> <span class="c1"># =&gt; 1
+# Exponentiation (x to the yth power)
+</span><span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="c1"># =&gt; 16
+</span></code></pre></div></div>
+<p>Logic</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enforce precedence with parentheses
+</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># =&gt; 8
+</span>
+<span class="c1"># Boolean Operators
+</span><span class="n">Note</span> <span class="s">"and"</span> <span class="ow">and</span> <span class="s">"or"</span> <span class="n">are</span> <span class="n">case</span><span class="o">-</span><span class="n">sensitive</span>
+<span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span> <span class="c1">#=&gt; False
+</span><span class="bp">False</span> <span class="ow">or</span> <span class="bp">True</span> <span class="c1">#=&gt; True
+</span>
+<span class="c1"># Note using Bool operators with ints
+</span><span class="mi">0</span> <span class="ow">and</span> <span class="mi">2</span> <span class="c1">#=&gt; 0
+</span><span class="o">-</span><span class="mi">5</span> <span class="ow">or</span> <span class="mi">0</span> <span class="c1">#=&gt; -5
+</span><span class="mi">0</span> <span class="o">==</span> <span class="bp">False</span> <span class="c1">#=&gt; True
+</span><span class="mi">2</span> <span class="o">==</span> <span class="bp">True</span> <span class="c1">#=&gt; False
+</span><span class="mi">1</span> <span class="o">==</span> <span class="bp">True</span> <span class="c1">#=&gt; True
+</span>
+<span class="c1"># negate with not
+</span><span class="ow">not</span> <span class="bp">True</span>  <span class="c1"># =&gt; False
+</span><span class="ow">not</span> <span class="bp">False</span>  <span class="c1"># =&gt; True
+</span>
+<span class="c1"># Equality is ==
+</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>  <span class="c1"># =&gt; True
+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span>  <span class="c1"># =&gt; False
+</span>
+<span class="c1"># Inequality is !=
+</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span>  <span class="c1"># =&gt; False
+</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">1</span>  <span class="c1"># =&gt; True
+</span>
+<span class="c1"># More comparisons
+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">10</span>  <span class="c1"># =&gt; True
+</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">10</span>  <span class="c1"># =&gt; False
+</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">2</span>  <span class="c1"># =&gt; True
+</span><span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">2</span>  <span class="c1"># =&gt; True
+</span>
+<span class="c1"># Comparisons can be chained!
+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>  <span class="c1"># =&gt; True
+</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">2</span>  <span class="c1"># =&gt; False
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="strings">
+<a class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h1>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Strings are created with " or '
+</span><span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="s">"This is a string."</span>
+<span class="s">'This is also a string.'</span>
+
+<span class="c1"># Strings can be added too!
+</span><span class="s">"Hello "</span> <span class="o">+</span> <span class="s">"world!"</span>  <span class="c1"># =&gt; "Hello world!"
+</span>
+<span class="c1"># Strings can be added without using '+'
+</span><span class="s">"Hello "</span> <span class="s">"world!"</span>  <span class="c1"># =&gt; "Hello world!"
+</span>
+<span class="c1"># ... or multiplied
+</span><span class="s">"Hello"</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># =&gt; "HelloHelloHello"
+</span>
+<span class="c1"># A string can be treated like a list of characters```python
+</span><span class="s">"This is a string"</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; 'T'
+</span>
+<span class="c1"># String formatting with %
+</span><span class="n">Even</span> <span class="n">though</span> <span class="n">the</span> <span class="o">%</span> <span class="n">string</span> <span class="n">operator</span> <span class="n">will</span> <span class="n">be</span> <span class="n">deprecated</span> <span class="n">on</span> <span class="n">Python</span> <span class="mf">3.1</span> <span class="ow">and</span> <span class="n">removed</span> <span class="n">later</span> <span class="n">at</span> <span class="n">some</span> <span class="n">time</span><span class="p">,</span> <span class="n">it</span> <span class="n">may</span> <span class="n">still</span> <span class="n">be</span> <span class="n">good</span> <span class="n">to</span> <span class="n">know</span> <span class="n">how</span> <span class="n">it</span> <span class="n">works</span><span class="o">.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s">'apple'</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">'lemon'</span>
+<span class="n">z</span> <span class="o">=</span> <span class="s">"The items in the basket are </span><span class="si">%</span><span class="s">s and </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># A newer way to format strings is the format method.
+</span><span class="n">This</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">preferred</span> <span class="n">way</span>
+<span class="s">"{} is a {}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"This"</span><span class="p">,</span> <span class="s">"placeholder"</span><span class="p">)</span>
+<span class="s">"{0} can be {1}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"strings"</span><span class="p">,</span> <span class="s">"formatted"</span><span class="p">)</span>
+
+<span class="c1"># You can use keywords if you don't want to count.
+</span><span class="s">"{name} wants to eat {food}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Bob"</span><span class="p">,</span> <span class="n">food</span><span class="o">=</span><span class="s">"lasagna"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<p>Object</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># None is an object
+</span><span class="bp">None</span>  <span class="c1"># =&gt; None
+</span>
+<span class="c1"># Don't use the equality "==" symbol to compare objects to None
+# Use "is" instead
+</span><span class="s">"etc"</span> <span class="ow">is</span> <span class="bp">None</span>  <span class="c1"># =&gt; False
+</span><span class="bp">None</span> <span class="ow">is</span> <span class="bp">None</span>  <span class="c1"># =&gt; True
+</span>
+<span class="c1"># The 'is' operator tests for object identity. This isn't
+</span><span class="o">*</span> <span class="n">very</span> <span class="n">useful</span> <span class="n">when</span> <span class="n">dealing</span> <span class="k">with</span> <span class="n">primitive</span> <span class="n">values</span><span class="p">,</span> <span class="n">but</span> <span class="ow">is</span>
+<span class="o">*</span> <span class="n">very</span> <span class="n">useful</span> <span class="n">when</span> <span class="n">dealing</span> <span class="k">with</span> <span class="n">objects</span><span class="o">.</span>
+
+<span class="c1">## Any object can be used in a Boolean context.
+</span><span class="n">The</span> <span class="n">following</span> <span class="n">values</span> <span class="n">are</span> <span class="n">considered</span> <span class="n">falsey</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="o">-</span> <span class="bp">None</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">zero</span> <span class="n">of</span> <span class="nb">any</span> <span class="n">numeric</span> <span class="nb">type</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="il">0L</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0j</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">empty</span> <span class="n">sequences</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="p">(),</span> <span class="p">[])</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">empty</span> <span class="n">containers</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="p">{},</span> <span class="nb">set</span><span class="p">())</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">instances</span> <span class="n">of</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">classes</span> <span class="n">meeting</span> <span class="n">certain</span> <span class="n">conditions</span>
+<span class="o">*</span> <span class="n">see</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">reference</span><span class="o">/</span><span class="n">datamodel</span><span class="o">.</span><span class="n">html</span><span class="c1">#object.__nonzero__
+</span>
+<span class="n">All</span> <span class="n">other</span> <span class="n">values</span> <span class="n">are</span> <span class="n">truthy</span> <span class="p">(</span><span class="n">using</span> <span class="n">the</span> <span class="nb">bool</span><span class="p">()</span> <span class="n">function</span> <span class="n">on</span> <span class="n">them</span> <span class="n">returns</span> <span class="bp">True</span><span class="p">)</span><span class="o">.</span>
+<span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># =&gt; False
+</span><span class="nb">bool</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>  <span class="c1"># =&gt; False
+</span></code></pre></div></div>
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="variables-and-collections">
+<a class="anchor" href="#variables-and-collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables and Collections</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Python has a print statement
+</span><span class="k">print</span> <span class="s">"I'm Python. Nice to meet you!"</span> <span class="c1"># =&gt; I'm Python. Nice to meet you!
+</span>
+<span class="c1"># Simple way to get input data from console
+</span><span class="n">input_string_var</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"Enter some data: "</span><span class="p">)</span> <span class="c1"># Returns the data as a string
+</span><span class="n">input_var</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter some data: "</span><span class="p">)</span> <span class="c1"># Evaluates the data as python code
+# Warning: Caution is recommended for input() method usage&lt;br&gt;
+# Note: In python 3, input() is deprecated and raw_input() is renamed to input()
+</span></code></pre></div></div>
+
+<p>Variables</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># No need to declare variables before assigning to them.
+</span><span class="n">some_var</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># Convention is to use lower_case_with_underscores
+</span><span class="n">some_var</span>  <span class="c1"># =&gt; 5
+</span>
+<span class="c1"># Accessing a previously unassigned variable is an exception.
+</span><span class="n">some_other_var</span>  <span class="c1"># Raises a name error
+</span>
+<span class="c1"># ternary operator
+</span><span class="s">"yahoo!"</span> <span class="k">if</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">2</span>  <span class="c1"># =&gt; "yahoo!"
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="lists">
+<a class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Lists store sequences
+</span><span class="n">li</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># You can start with a prefilled list
+</span><span class="n">other_li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="c1"># Add stuff to the end of a list with append
+</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># li is now [1]
+</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># li is now [1, 2]
+</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>    <span class="c1"># li is now [1, 2, 4]
+</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1"># li is now [1, 2, 4, 3]
+</span>
+<span class="c1"># Remove from the end with pop
+</span><span class="n">li</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>        <span class="c1"># =&gt; 3 and li is now [1, 2, 4]
+</span>
+<span class="c1"># Let's put it back
+</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1"># li is now [1, 2, 4, 3] again.
+</span>
+<span class="c1"># Access a list like you would any array
+</span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; 1
+</span>
+<span class="c1"># Assign new values to indexes that have already been initialized with =
+</span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; 42
+</span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Note: setting it back to the original value
+</span>
+<span class="c1"># Look at the last element
+</span><span class="n">li</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># =&gt; 3
+# Looking out of bounds is an IndexError
+</span><span class="n">li</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Raises an IndexError
+</span>
+<span class="c1"># You can look at ranges with slice syntax.
+</span><span class="p">(</span><span class="n">It</span><span class="s">'s a closed/open range for you mathy types.)</span><span class="err">
+</span><span class="s">li[1:3]  # =&gt; [2, 4]</span><span class="err">
+</span><span class="s"># Omit the beginning</span><span class="err">
+</span><span class="s">li[2:]  # =&gt; [4, 3]</span><span class="err">
+
+</span><span class="s"># Omit the end</span><span class="err">
+</span><span class="s">li[:3]  # =&gt; [1, 2, 4]</span><span class="err">
+</span><span class="s"># Select every second entry</span><span class="err">
+</span><span class="s">li[::2]   # =&gt;[1, 4]</span><span class="err">
+</span><span class="s"># Reverse a copy of the list</span><span class="err">
+</span><span class="s">li[::-1]   # =&gt; [3, 4, 2, 1]</span><span class="err">
+</span><span class="s"># Use any combination of these to make advanced slices li[start:end:step]</span><span class="err">
+
+
+</span><span class="s"># Remove arbitrary elements from a list with "del"</span><span class="err">
+</span><span class="s">del li[2]   # li is now [1, 2, 3]</span><span class="err">
+</span><span class="s"># You can add lists</span><span class="err">
+</span><span class="s">li + other_li   # =&gt; [1, 2, 3, 4, 5, 6]</span><span class="err">
+</span><span class="s"># Note: values for li and for other_li are not modified.</span><span class="err">
+
+</span><span class="s"># Concatenate lists with "extend()"</span><span class="err">
+</span><span class="s">li.extend(other_li)   # Now li is [1, 2, 3, 4, 5, 6]</span><span class="err">
+
+</span><span class="s"># Remove first occurrence of a value</span><span class="err">
+</span><span class="s">li.remove(2)  # li is now [1, 3, 4, 5, 6]</span><span class="err">
+</span><span class="s">li.remove(2)  # Raises a ValueError as 2 is not in the list</span><span class="err">
+
+</span><span class="s"># Insert an element at a specific index</span><span class="err">
+</span><span class="s">li.insert(1, 2)  # li is now [1, 2, 3, 4, 5, 6] again</span><span class="err">
+
+</span><span class="s"># Get the index of the first item found</span><span class="err">
+</span><span class="s">li.index(2)  # =&gt; 1</span><span class="err">
+</span><span class="s">li.index(7)  # Raises a ValueError as 7 is not in the list</span><span class="err">
+
+</span><span class="s"># Check for existence in a list with "in"</span><span class="err">
+</span><span class="s">1 in li   # =&gt; True</span><span class="err">
+</span><span class="s"># Examine the length with "len()"</span><span class="err">
+</span><span class="s">len(li)   # =&gt; 6</span><span class="err">
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="tuples">
+<a class="anchor" href="#tuples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tuples</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Tuples are like lists but are immutable.
+</span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># =&gt; 1
+</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Raises a TypeError
+</span>
+<span class="c1"># You can do all those list thingies on tuples too
+</span><span class="nb">len</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>   <span class="c1"># =&gt; 3
+</span><span class="n">tup</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>   <span class="c1"># =&gt; (1, 2, 3, 4, 5, 6)
+</span><span class="n">tup</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># =&gt; (1, 2)
+</span><span class="mi">2</span> <span class="ow">in</span> <span class="n">tup</span>   <span class="c1"># =&gt; True
+</span>
+<span class="c1"># You can unpack tuples (or lists) into variables
+</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="c1"># a is now 1, b is now 2 and c is now 3
+</span><span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>       <span class="c1"># you can leave out the parentheses
+</span>
+<span class="c1"># Tuples are created by default if you leave out the parentheses
+</span><span class="n">g</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>             <span class="c1"># =&gt; (4, 5, 6)
+</span>
+<span class="c1"># Now look how easy it is to swap two values
+</span><span class="n">e</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span>     <span class="c1"># d is now 5 and e is now 4
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+
+<h1 id="dictionary">
+<a class="anchor" href="#dictionary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dictionary</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Dictionaries store mappings
+</span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">filled_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">"one"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"three"</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="c1"># Look up values with []
+</span><span class="n">filled_dict</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span>   <span class="c1"># =&gt; 1
+</span>
+<span class="c1"># get keys
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>   <span class="c1"># =&gt; ["three", "two", "one"]
+# Note - Dictionary key ordering is not guaranteed.
+</span>
+<span class="c1"># Get all values as a list with "values()"
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>   <span class="c1"># =&gt; [3, 2, 1]
+</span>
+<span class="c1"># Iterate over keys, values
+</span><span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="k">print</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span>
+
+<span class="c1">### join dictionary keys into string
+</span><span class="s">'&lt;br/&gt;'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">'</span><span class="si">%</span><span class="s">s:: </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+
+<span class="c1">## Lookup
+</span>
+<span class="c1">### Check for existence of keys in a dictionary with "in"
+</span><span class="s">"one"</span> <span class="ow">in</span> <span class="n">filled_dict</span>   <span class="c1"># =&gt; True
+</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">filled_dict</span>   <span class="c1"># =&gt; False
+# Looking up a non-existing key is a KeyError
+</span><span class="n">filled_dict</span><span class="p">[</span><span class="s">"four"</span><span class="p">]</span>   <span class="c1"># KeyError
+# Use "get()" method to avoid the KeyError
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"one"</span><span class="p">)</span>   <span class="c1"># =&gt; 1
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"four"</span><span class="p">)</span>   <span class="c1"># =&gt; None
+# The get method supports a default argument when the value is missing
+</span>
+<span class="n">filled_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># =&gt; 1
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"four"</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># =&gt; 4
+</span>
+<span class="n">note</span> <span class="n">that</span> <span class="n">filled_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"four"</span><span class="p">)</span> <span class="ow">is</span> <span class="n">still</span> <span class="o">=&gt;</span> <span class="bp">None</span>
+<span class="p">(</span><span class="n">get</span> <span class="n">doesn</span><span class="s">'t set the value in the dictionary)</span><span class="err">
+
+</span><span class="s">## Set value</span><span class="err">
+
+</span><span class="s"># set the value of a key with a syntax similar to lists</span><span class="err">
+</span><span class="s">filled_dict["four"] = 4  # now, filled_dict["four"] =&gt; 4</span><span class="err">
+</span><span class="s"># "setdefault()" inserts into a dictionary only if the given key isn'</span><span class="n">t</span> <span class="n">present</span>
+<span class="n">filled_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">"five"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># filled_dict["five"] is set to 5
+</span><span class="n">filled_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">"five"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># filled_dict["five"] is still 5
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="sets">
+<a class="anchor" href="#sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sets</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Sets store ... well sets (which are like lists but can contain no duplicates)
+</span><span class="n">empty_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="c1">## Initialize a "set()" with a bunch of values
+</span><span class="n">some_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>   <span class="c1"># some_set is now set([1, 2, 3, 4])
+</span>
+<span class="c1"># order is not guaranteed, even though it may sometimes look sorted
+</span><span class="n">another_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># another_set is now set([1, 2, 3, 4])
+</span>
+<span class="c1">## Since Python 2.7, {} can be used to declare a set
+</span><span class="n">filled_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1"># =&gt; {1, 2, 3, 4}
+</span>
+<span class="c1"># Add more items to a set
+</span><span class="n">filled_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># filled_set is now {1, 2, 3, 4, 5}
+</span>
+<span class="c1">## Intersection
+</span><span class="n">other_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">filled_set</span> <span class="o">&amp;</span> <span class="n">other_set</span>   <span class="c1"># =&gt; {3, 4, 5}
+</span>
+<span class="c1">## Union with |
+</span><span class="n">filled_set</span> <span class="o">|</span> <span class="n">other_set</span>   <span class="c1"># =&gt; {1, 2, 3, 4, 5, 6}
+# Set difference with -
+</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>   <span class="c1"># =&gt; {1, 4}
+</span>
+<span class="c1">## set symmetric difference with ^
+</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">^</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>  <span class="c1"># =&gt; {1, 4, 5}
+</span>
+<span class="c1">## Check if set on the left is a superset of set on the right
+</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># =&gt; False
+## Check if set on the left is a subset of set on the right
+</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># =&gt; True
+## Check for existence in a set with in
+</span><span class="mi">2</span> <span class="ow">in</span> <span class="n">filled_set</span>   <span class="c1"># =&gt; True
+</span><span class="mi">10</span> <span class="ow">in</span> <span class="n">filled_set</span>   <span class="c1"># =&gt; False
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="control-flow">
+<a class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control Flow</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Let's just make a variable
+</span><span class="n">some_var</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1"># If
+## Here is an if statement. Indentation is significant in python! 
+</span><span class="k">if</span> <span class="n">some_var</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">"some_var is totally bigger than 10."</span>
+<span class="k">elif</span> <span class="n">some_var</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>    <span class="c1"># This elif clause is optional.
+</span>    <span class="k">print</span> <span class="s">"some_var is smaller than 10."</span>
+<span class="k">else</span><span class="p">:</span>           <span class="c1"># This is optional too.
+</span>    <span class="k">print</span> <span class="s">"some_var is indeed 10."</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## For
+</span><span class="s">"""
+For loops iterate over lists
+prints:
+    dog is a mammal
+    cat is a mammal
+    mouse is a mammal
+"""</span>
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"mouse"</span><span class="p">]:</span>
+    <span class="c1"># You can use {0} to interpolate formatted strings. (See above.)
+</span>    <span class="k">print</span> <span class="s">"{0} is a mammal"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+
+<span class="s">"""
+</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Range
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">i</span>
+    
+<span class="s">"""
+"range(lower, upper)" returns a list of numbers
+from the lower number to the upper number
+prints:
+    4
+    5
+    6
+    7
+"""</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">i</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## While
+</span><span class="n">While</span> <span class="n">loops</span> <span class="n">go</span> <span class="n">until</span> <span class="n">a</span> <span class="n">condition</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">met</span><span class="o">.</span>
+<span class="n">prints</span><span class="p">:</span>
+    <span class="mi">0</span>
+    <span class="mi">1</span>
+    <span class="mi">2</span>
+    <span class="mi">3</span>
+<span class="s">"""
+x = 0
+while x &lt; 4:
+    print x
+    x += 1  # Shorthand for x = x + 1
+</span></code></pre></div></div>
+
+<h1 id="exceptions">
+<a class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Handle exceptions with a try/except block
+</span><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Use "raise" to raise an error
+</span>    <span class="k">raise</span> <span class="nb">IndexError</span><span class="p">(</span><span class="s">"This is an index error"</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">pass</span>    <span class="c1"># Pass is just a no-op. Usually you would do recovery here.
+</span><span class="k">except</span> <span class="p">(</span><span class="nb">TypeError</span><span class="p">,</span> <span class="nb">NameError</span><span class="p">):</span>
+    <span class="k">pass</span>    <span class="c1"># Multiple exceptions can be handled together, if required.
+</span><span class="k">else</span><span class="p">:</span>   <span class="c1"># Optional clause to the try/except block. Must follow all except blocks
+</span>    <span class="k">print</span> <span class="s">"All good!"</span>   <span class="c1"># Runs only if the code in try raises no exceptions
+</span><span class="k">finally</span><span class="p">:</span> <span class="c1">#  Execute under all circumstances
+</span>    <span class="k">print</span> <span class="s">"We can clean up resources here"</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># Instead of try/finally to cleanup resources you can use a with statement
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"myfile.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">line</span>
+</code></pre></div></div>
+
+<h1 id="functions">
+<a class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Use "def" to create new functions
+</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"x is {0} and y is {1}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>    <span class="c1"># Return values with a return statement
+</span>
+<span class="c1">#Calling functions with parameters
+</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>   <span class="c1"># =&gt; prints out "x is 5 and y is 6" and returns 11
+</span>
+<span class="c1"># Another way to call functions is with keyword arguments
+</span><span class="n">add</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># Keyword arguments can arrive in any order.
+</span>
+<span class="c1"># You can define functions that take a variable number of positional args, which will be interpreted as a tuple by using *
+</span><span class="k">def</span> <span class="nf">varargs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">args</span>
+<span class="n">varargs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; (1, 2, 3)
+</span>
+<span class="c1"># You can define functions that take a variable number of keyword args, as well, which will be interpreted as a dict by using **
+</span><span class="k">def</span> <span class="nf">keyword_args</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">kwargs</span>
+<span class="n">keyword_args</span><span class="p">(</span><span class="n">big</span><span class="o">=</span><span class="s">"foot"</span><span class="p">,</span> <span class="n">loch</span><span class="o">=</span><span class="s">"ness"</span><span class="p">)</span>   <span class="c1"># =&gt; {"big": "foot", "loch": "ness"}
+</span>
+<span class="c1">## You can do both at once, if you like
+</span><span class="k">def</span> <span class="nf">all_the_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">args</span>
+    <span class="k">print</span> <span class="n">kwargs</span>
+<span class="s">"""
+all_the_args(1, 2, a=3, b=4) prints:
+    (1, 2)
+    {"a": 3, "b": 4}
+"""</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## When calling functions, you can do the opposite of args/kwargs! Use * to expand positional args and use ** to expand keyword args.
+</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"a"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">"b"</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">all_the_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>   <span class="c1"># equivalent to foo(1, 2, 3, 4)
+</span><span class="n">all_the_args</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>   <span class="c1"># equivalent to foo(a=3, b=4)
+</span><span class="n">all_the_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>   <span class="c1"># equivalent to foo(1, 2, 3, 4, a=3, b=4)
+</span>
+<span class="c1"># you can pass args and kwargs along to other functions that take args/kwargs by expanding them with * and ** respectively
+</span><span class="k">def</span> <span class="nf">pass_all_the_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">all_the_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">varargs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">keyword_args</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Function Scope</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">set_x</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="c1"># Local var x not the same as global variable x
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">num</span> <span class="c1"># =&gt; 43
+</span>    <span class="k">print</span> <span class="n">x</span> <span class="c1"># =&gt; 43
+</span>
+<span class="k">def</span> <span class="nf">set_global_x</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">x</span>
+    <span class="k">print</span> <span class="n">x</span> <span class="c1"># =&gt; 5
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">num</span> <span class="c1"># global var x is now set to 6
+</span>    <span class="k">print</span> <span class="n">x</span> <span class="c1"># =&gt; 6
+</span>
+<span class="n">set_x</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="n">set_global_x</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Python has first class functions</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_adder</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">adder</span>
+
+<span class="n">add_10</span> <span class="o">=</span> <span class="n">create_adder</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">add_10</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; 13
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<p>There are also anonymous functions</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; True
+</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; 5
+</span>
+<span class="c1"># There are built-in higher order functions
+</span><span class="nb">map</span><span class="p">(</span><span class="n">add_10</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>   <span class="c1"># =&gt; [11, 12, 13]
+</span><span class="nb">map</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>   <span class="c1"># =&gt; [4, 2, 3]
+</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>   <span class="c1"># =&gt; [6, 7]
+</span></code></pre></div></div>
+
+<p>We can use list comprehensions for nice maps and filters</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">add_10</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>  <span class="c1"># =&gt; [11, 12, 13]
+</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>   <span class="c1"># =&gt; [6, 7]
+</span></code></pre></div></div>
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="classes">
+<a class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We subclass from object to get a class.
+</span><span class="k">class</span> <span class="nc">Human</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># A class attribute. It is shared by all instances of this class
+</span>    <span class="n">species</span> <span class="o">=</span> <span class="s">"H. sapiens"</span>
+    <span class="c1"># Basic initializer, this is called when this class is instantiated.
+</span>    <span class="c1"># Note that the double leading and trailing underscores denote objects
+</span>    <span class="c1"># or attributes that are used by python but that live in user-controlled
+</span>    <span class="c1"># namespaces. You should not invent such names on your own.
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c1"># Assign the argument to the instance's name attribute
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="c1"># Initialize property
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># An instance method. All methods take "self" as the first argument
+</span>    <span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"{0}: {1}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+    <span class="c1"># A class method is shared among all instances
+</span>    <span class="c1"># They are called with the calling class as the first argument
+</span>    <span class="o">@</span><span class="nb">classmethod</span>
+    <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">species</span>
+
+    <span class="c1"># A static method is called without a class or instance reference
+</span>    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">grunt</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">"*grunt*"</span>
+
+    <span class="c1"># A property is just like a getter.
+</span>    <span class="c1"># It turns the method age() into an read-only attribute
+</span>    <span class="c1"># of the same name.
+</span>    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
+
+    <span class="c1"># This allows the property to be set
+</span>    <span class="o">@</span><span class="n">age</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="c1"># This allows the property to be deleted
+</span>    <span class="o">@</span><span class="n">age</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Instantiate a class
+</span><span class="n">i</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Ian"</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">i</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"hi"</span><span class="p">)</span>     <span class="c1"># prints out "Ian: hi"
+</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="s">"Joel"</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">j</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>  <span class="c1"># prints out "Joel: hello"
+</span>
+<span class="c1"># Call our class method
+</span><span class="n">i</span><span class="o">.</span><span class="n">get_species</span><span class="p">()</span>   <span class="c1"># =&gt; "H. sapiens"
+</span>
+<span class="c1"># Change the shared attribute
+</span><span class="n">Human</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s">"H. neanderthalensis"</span>
+<span class="n">i</span><span class="o">.</span><span class="n">get_species</span><span class="p">()</span>   <span class="c1"># =&gt; "H. neanderthalensis"
+</span><span class="n">j</span><span class="o">.</span><span class="n">get_species</span><span class="p">()</span>   <span class="c1"># =&gt; "H. neanderthalensis"
+</span>
+<span class="c1"># Call the static method
+</span><span class="n">Human</span><span class="o">.</span><span class="n">grunt</span><span class="p">()</span>   <span class="c1"># =&gt; "*grunt*"
+</span>
+<span class="c1"># Update the property
+</span><span class="n">i</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="c1"># Get the property
+</span><span class="n">i</span><span class="o">.</span><span class="n">age</span> <span class="c1"># =&gt; 42
+</span>
+<span class="c1"># Delete the property
+</span><span class="k">del</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span>
+<span class="n">i</span><span class="o">.</span><span class="n">age</span>  <span class="c1"># =&gt; raises an AttributeError
+</span></code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="modules">
+<a class="anchor" href="#modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># You can import modules
+</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">print</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>  <span class="c1"># =&gt; 4
+</span>
+<span class="c1"># You can get specific functions from a module
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+<span class="k">print</span> <span class="n">ceil</span><span class="p">(</span><span class="mf">3.7</span><span class="p">)</span>  <span class="c1"># =&gt; 4.0
+</span><span class="k">print</span> <span class="n">floor</span><span class="p">(</span><span class="mf">3.7</span><span class="p">)</span>   <span class="c1"># =&gt; 3.0
+</span>
+<span class="c1"># You can import all functions from a module. Warning: this is not recommended
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># You can shorten module names
+</span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="n">m</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>   <span class="c1"># =&gt; True
+</span>
+<span class="c1"># you can also test that the functions are equivalent
+</span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span> <span class="o">==</span> <span class="n">sqrt</span>  <span class="c1"># =&gt; True
+</span>
+<span class="c1"># own modules
+</span><span class="n">Python</span> <span class="n">modules</span> <span class="n">are</span> <span class="n">just</span> <span class="n">ordinary</span> <span class="n">python</span> <span class="n">files</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">write</span> <span class="n">your</span> <span class="n">own</span><span class="p">,</span> <span class="ow">and</span> <span class="kn">import</span> <span class="nn">them.</span> <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">module</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">file</span><span class="o">.</span> <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="n">You</span> <span class="n">can</span> <span class="n">find</span> <span class="n">out</span> <span class="n">which</span> <span class="n">functions</span> <span class="ow">and</span> <span class="n">attributes</span> <span class="n">defines</span> <span class="n">a</span> <span class="n">module</span><span class="o">.</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="advanced">
+<a class="anchor" href="#advanced" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced</h1>
+
+<h2 id="generators">
+<a class="anchor" href="#generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generators help you make lazy code
+</span><span class="k">def</span> <span class="nf">double_numbers</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">i</span> <span class="o">+</span> <span class="n">i</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<p>A generator creates values on the fly.
+Instead of generating and returning all values at once it creates one in each iteration.  This means values bigger than 15 wont be processed in double_numbers.<br>
+Note xrange is a generator that does the same thing range does.
+Creating a list 1-900000000 would take lot of time and space to be made. xrange creates an xrange generator object instead of creating the entire list like range does.</p>
+
+<p>We use a trailing underscore in variable names when we want to use a name that would normally collide with a python keyword</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">xrange_</span> <span class="o">=</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">900000000</span><span class="p">)</span>
+
+<span class="c1"># will double all numbers until a result &gt;=30 found
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">double_numbers</span><span class="p">(</span><span class="n">xrange_</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">i</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h2 id="decorators">
+<a class="anchor" href="#decorators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decorators</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># in this example beg wraps say Beg will call say. If say_please is True then it will change the returned message
+</span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+
+<span class="k">def</span> <span class="nf">beg</span><span class="p">(</span><span class="n">target_function</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">wraps</span><span class="p">(</span><span class="n">target_function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">msg</span><span class="p">,</span> <span class="n">say_please</span> <span class="o">=</span> <span class="n">target_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">say_please</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"{} {}"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s">"Please! I am poor :("</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">msg</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">@</span><span class="n">beg</span>
+<span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">say_please</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">"Can you buy me a beer?"</span>
+    <span class="k">return</span> <span class="n">msg</span><span class="p">,</span> <span class="n">say_please</span>
+</code></pre></div></div>
+
+<p>(<a href="#top">Back to top</a>)</p>
+<hr>
+
+<h1 id="files">
+<a class="anchor" href="#files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># iterate over files
+</span><span class="kn">import</span> <span class="nn">glob</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span>
+<span class="n">filesDepth3</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*/*/*'</span><span class="p">)</span>
+<span class="c1">#only dirs 
+</span><span class="n">dirsDepth3</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">filesDepth3</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*.txt'</span><span class="p">)):</span>                                       
+     <span class="n">reader</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>     
+<span class="c1"># join directory and filename
+</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">filename_suffix</span><span class="p">)</span>
+
+</code></pre></div></div>
+<p>Common operating system tasks
+<a href="http://hplgit.github.io/edu/ostasks/._ostasks002.html">source</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Make a folder
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">'mydir'</span><span class="p">)</span>
+
+<span class="c1">## Make intermediate folders
+</span><span class="n">foldername</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'HOME'</span><span class="p">],</span> <span class="s">'python'</span><span class="p">,</span>
+                          <span class="s">'project1'</span><span class="p">,</span> <span class="s">'temp'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">foldername</span><span class="p">)</span>
+
+<span class="c1">## Move to a folder
+</span><span class="n">origfolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>  <span class="c1"># get name of current folder
+</span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">foldername</span><span class="p">)</span>      <span class="c1"># move ("change directory")
+</span><span class="o">...</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">origfolder</span><span class="p">)</span>      <span class="c1"># move back
+</span>
+<span class="c1">## Rename a file or folder
+</span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">oldname</span><span class="p">,</span> <span class="n">newname</span><span class="p">)</span>
+
+<span class="c1">## List files
+</span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">filelist1</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*.py'</span><span class="p">)</span>
+<span class="n">filelist2</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'plot*[1-4]*.dat'</span><span class="p">)</span>
+
+<span class="c1">## List all files and folders in a folder
+</span><span class="n">filelist1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'mydir'</span><span class="p">)</span>
+<span class="n">filelist1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>  <span class="c1"># current folder (directory)
+</span><span class="n">filelist1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>                   <span class="c1"># sort alphabetically
+</span>
+<span class="c1">## Check if a file or folder exists
+</span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">inputfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="o">...</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dirnamename</span><span class="p">):</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+    <span class="o">...</span>
+
+<span class="c1">## Remove files
+</span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">filelist</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'tmp_*.pdf'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1">## Remove a folder and all its subfolders
+</span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">foldername</span><span class="p">)</span>
+
+<span class="c1">## Copy a file to another file or folder
+</span><span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s">'fromfile'</span><span class="p">,</span> <span class="s">'tofile'</span><span class="p">)</span>
+
+<span class="c1">## Copy a folder and all its subfolders
+</span><span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">sourcefolder</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="command-line">
+<a class="anchor" href="#command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="n">converter_script</span><span class="p">,</span> <span class="s">'-f'</span> <span class="p">,</span><span class="n">input_file</span><span class="p">,</span><span class="s">'-o'</span><span class="p">,</span>  <span class="n">output_file</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<h1 id="printing">
+<a class="anchor" href="#printing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Printing</h1>
+<p>use f strings:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">"{name.lower()} is funny."</span>
+<span class="s">'eric idle is funny.'</span>
+</code></pre></div></div>
+<p><a href="https://realpython.com/python-f-strings/">source</a></p>
+
+<h1 id="images">
+<a class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h1>
+
+<p>Display images</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">Image</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'File.jpg'</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">);</span> <span class="n">img</span>
+</code></pre></div></div>
+<p>convert array to image</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">'RGB'</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'my.png'</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/markdown/2020/03/03/python-cheat-sheet.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Data Science · Machine Learning · Deep Learning · Big Data · Bioinformatics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fabsta" title="fabsta"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fabschreiber" title="fabschreiber"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

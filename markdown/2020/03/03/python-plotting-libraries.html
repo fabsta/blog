@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python plotting libraries | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python plotting libraries" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview of python plotting libraries." />
+<meta property="og:description" content="Overview of python plotting libraries." />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python plotting libraries","description":"Overview of python plotting libraries.","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/markdown/2020/03/03/python-plotting-libraries.html"},"@type":"BlogPosting","url":"/blog/markdown/2020/03/03/python-plotting-libraries.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python plotting libraries | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python plotting libraries" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview of python plotting libraries." />
+<meta property="og:description" content="Overview of python plotting libraries." />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python plotting libraries","description":"Overview of python plotting libraries.","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/markdown/2020/03/03/python-plotting-libraries.html"},"@type":"BlogPosting","url":"/blog/markdown/2020/03/03/python-plotting-libraries.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Fabian&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">👤️ About Me</a><a class="page-link" href="/blog/search/">🔎️ Search</a><a class="page-link" href="/blog/snippets/">Code snippets</a><a class="page-link" href="/blog/categories/">📂️ Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python plotting libraries</h1><p class="page-description">Overview of python plotting libraries.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-03T00:00:00-06:00" itemprop="datePublished">
+        Mar 3, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#how-to-choose-a-chart">How to choose a chart</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#individual-charts">Individual charts</a></li>
+<li class="toc-entry toc-h2"><a href="#regression">Regression</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#preliminaries">Preliminaries</a></li>
+<li class="toc-entry toc-h1"><a href="#images">Images</a></li>
+<li class="toc-entry toc-h1"><a href="#plotting">Plotting</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#seaborn">Seaborn</a></li>
+<li class="toc-entry toc-h2"><a href="#bokeh-interactive-app-standalone">Bokeh interactive app (standalone)</a></li>
+<li class="toc-entry toc-h2"><a href="#plotly">Plotly</a></li>
+<li class="toc-entry toc-h2"><a href="#altair">Altair</a></li>
+<li class="toc-entry toc-h2"><a href="#useful-code-snippets">Useful code snippets</a></li>
+<li class="toc-entry toc-h2"><a href="#dashboards">Dashboards</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#streamlit">Streamlit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1 id="how-to-choose-a-chart">
+<a class="anchor" href="#how-to-choose-a-chart" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to choose a chart</h1>
+
+<p><img src="https://i.imgur.com/v2r3q6S.png" alt="">
+image source: <a href="http://experception.net/Franconeri_ExperCeptionDotNet_ChartChooser.pdf">experception.net</a></p>
+
+<p><a href="https://multimedia.journalism.berkeley.edu/tutorials/visualizing-data-a-guide-to-chart-types/">good source</a></p>
+
+<p><img src="https://multimedia.journalism.berkeley.edu/wp-content/uploads/Screen-Shot-2016-08-11-at-1.34.23-PM-1024x769.png" alt="https://multimedia.journalism.berkeley.edu/wp-content/uploads/Screen-Shot-2016-08-11-at-1.34.23-PM-1024x769.png">
+<a href="https://multimedia.journalism.berkeley.edu/wp-content/uploads/Screen-Shot-2016-08-11-at-1.34.23-PM-1024x769.png">source</a></p>
+
+<h2 id="individual-charts">
+<a class="anchor" href="#individual-charts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Individual charts</h2>
+<p>overview of charts explained: <a href="https://datavizcatalogue.com/index.html">https://datavizcatalogue.com/index.html</a></p>
+
+<p>boxplot:
+<a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51">https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51</a></p>
+
+<h2 id="regression">
+<a class="anchor" href="#regression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regression</h2>
+<p><a href="https://seaborn.pydata.org/tutorial/regression.html">https://seaborn.pydata.org/tutorial/regression.html</a></p>
+
+<h1 id="preliminaries">
+<a class="anchor" href="#preliminaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preliminaries</h1>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<h1 id="images">
+<a class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h1>
+<p>Image from Numpy array</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'RGB'</span><span class="p">)</span>
+<span class="c1">#print('saving file ',outfile)
+</span><span class="n">j</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="plotting">
+<a class="anchor" href="#plotting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plotting</h1>
+
+<p>List of links to plotting resources</p>
+
+<h2 id="seaborn">
+<a class="anchor" href="#seaborn" aria-hidden="true"><span class="octicon octicon-link"></span></a>Seaborn</h2>
+<p>Seaborn cheat sheet: <a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Seaborn_Cheat_Sheet.pdf">https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Seaborn_Cheat_Sheet.pdf</a>
+Interactive testing of plots: <a href="https://www.datacamp.com/community/tutorials/seaborn-python-tutorial">https://www.datacamp.com/community/tutorials/seaborn-python-tutorial</a></p>
+
+<h2 id="bokeh-interactive-app-standalone">
+<a class="anchor" href="#bokeh-interactive-app-standalone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bokeh interactive app (standalone)</h2>
+
+<p><a href="https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-iii-a-complete-dashboard-dc6a86aa6e23">blog post</a>, <a href="https://nbviewer.jupyter.org/github/WillKoehrsen/Bokeh-Python-Visualization/blob/master/application/app_development.ipynb">nbviewer</a>
+<a href="https://plot.ly/products/dash/">plotly (dash)</a>
+example: <a href="https://nbviewer.jupyter.org/github/sladkovm/graz-kiga-dataset/blob/master/Graz%20Kiga%20Dataset.ipynb">kigadataset Graz (nbviewer)</a></p>
+
+<h2 id="plotly">
+<a class="anchor" href="#plotly" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plotly</h2>
+
+<p>express</p>
+
+<p><a href="https://plotly.com/python/plotly-express/">main page</a>,<a href="https://nbviewer.jupyter.org/github/plotly/plotly_express/blob/master/walkthrough.ipynb">walkthrough.ipynb</a></p>
+
+<p>Great tutorial using plot.ly: <a href="https://medium.com/@williamkoehrsen/the-next-level-of-data-visualization-in-python-dd6e99039d5e">link</a> and plotly editor for jupyter lab <a href="https://github.com/plotly/jupyterlab-chart-editor">here</a></p>
+
+<h2 id="altair">
+<a class="anchor" href="#altair" aria-hidden="true"><span class="octicon octicon-link"></span></a>Altair</h2>
+
+<p><a href="altair-viz.github.io/gallery/index.html">gallery</a>
+use cases: <a href="https://covid19dashboards.com/">https://covid19dashboards.com/</a>,</p>
+
+<p>vega: <a href="https://vega.github.io/vega-lite/examples/">examples</a>, <a href="https://vega.github.io/vega-lite/examples/interactive_seattle_weather.html">interactive_seattle_weather</a>, <a href="https://github.com/vega/ipyvega">jupyter plugin</a> (not needed for jupyterlab)</p>
+
+<p>(<a href="#top">Back to top</a>)</p>
+
+<h2 id="useful-code-snippets">
+<a class="anchor" href="#useful-code-snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful code snippets</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">to</span> <span class="n">be</span> <span class="n">added</span>
+</code></pre></div></div>
+
+<h2 id="dashboards">
+<a class="anchor" href="#dashboards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dashboards</h2>
+
+<h3 id="streamlit">
+<a class="anchor" href="#streamlit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streamlit</h3>
+<p><a href="https://www.streamlit.io/">main page</a>, <a href="https://www.streamlit.io/gallery">https://www.streamlit.io/gallery</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Visualize any Data Easily, from Notebooks to Dashboards</td>
+      <td>Scipy 2019 Tutorial</td>
+      <td>James Bednar: <a href="https://www.youtube.com/watch?v=7deGS4IPAQ0">link</a>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(<a href="#top">Back to top</a>)</p>
+
+  </div><a class="u-url" href="/blog/markdown/2020/03/03/python-plotting-libraries.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Data Science · Machine Learning · Deep Learning · Big Data · Bioinformatics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fabsta" title="fabsta"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fabschreiber" title="fabschreiber"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
