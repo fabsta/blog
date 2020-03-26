@@ -1,8 +1,211 @@
-<h1 id="pandas-cheat-sheet-for-data-science">Pandas cheat sheet for data science</h1>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Pandas cheat sheet for data science | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Pandas cheat sheet for data science" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python code snippets for data science." />
+<meta property="og:description" content="Python code snippets for data science." />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:image" content="/blog/images/python/pipe.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-23T00:00:00-05:00","headline":"Pandas cheat sheet for data science","image":"/blog/images/python/pipe.jpg","description":"Python code snippets for data science.","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/python/cheat%20sheet/2020/03/23/data-science-snippets.html"},"@type":"BlogPosting","url":"/blog/python/cheat%20sheet/2020/03/23/data-science-snippets.html","dateModified":"2020-03-23T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Pandas cheat sheet for data science | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Pandas cheat sheet for data science" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python code snippets for data science." />
+<meta property="og:description" content="Python code snippets for data science." />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:image" content="/blog/images/python/pipe.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-23T00:00:00-05:00","headline":"Pandas cheat sheet for data science","image":"/blog/images/python/pipe.jpg","description":"Python code snippets for data science.","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/python/cheat%20sheet/2020/03/23/data-science-snippets.html"},"@type":"BlogPosting","url":"/blog/python/cheat%20sheet/2020/03/23/data-science-snippets.html","dateModified":"2020-03-23T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-<h1 id="statistics">Statistics</h1>
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" />
 
-<h2 id="multi-variate-analysis">Multi-variate analysis</h2>
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Fabian&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">👤️ About Me</a><a class="page-link" href="/blog/search/">🔎️ Search</a><a class="page-link" href="/blog/snippets/">Code snippets</a><a class="page-link" href="/blog/categories/">📂️ Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Pandas cheat sheet for data science</h1><p class="page-description">Python code snippets for data science.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-23T00:00:00-05:00" itemprop="datePublished">
+        Mar 23, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      34 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#cheat sheet">cheat sheet</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#pandas-cheat-sheet-for-data-science">Pandas cheat sheet for data science</a></li>
+<li class="toc-entry toc-h1"><a href="#statistics">Statistics</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#multi-variate-analysis">Multi-variate analysis</a></li>
+<li class="toc-entry toc-h2"><a href="#feature-understanding">Feature understanding</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#preliminaries">Preliminaries</a></li>
+<li class="toc-entry toc-h1"><a href="#import">Import</a></li>
+<li class="toc-entry toc-h1"><a href="#input-output">Input Output</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#input">Input</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#reading-files">Reading files</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#exploration">Exploration</a></li>
+<li class="toc-entry toc-h1"><a href="#selecting">Selecting</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+<li class="toc-entry toc-h2"><a href="#whole-dataframe">Whole DataFrame</a></li>
+<li class="toc-entry toc-h2"><a href="#columns">Columns</a></li>
+<li class="toc-entry toc-h2"><a href="#rows">Rows</a></li>
+<li class="toc-entry toc-h2"><a href="#cells">Cells</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-wrangling">Data wrangling</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#merge-join">Merge Join</a></li>
+<li class="toc-entry toc-h2"><a href="#groupby">GroupBy</a></li>
+<li class="toc-entry toc-h2"><a href="#dates">Dates</a></li>
+<li class="toc-entry toc-h2"><a href="#missing-data">Missing data</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#recodingreplacing-missing-data">Recoding/Replacing missing data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#categorical-data">Categorical Data</a></li>
+<li class="toc-entry toc-h2"><a href="#manipulations-and-cleaning">Manipulations and Cleaning</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#conversions">Conversions</a></li>
+<li class="toc-entry toc-h3"><a href="#method-chaining">Method chaining</a></li>
+<li class="toc-entry toc-h3"><a href="#binning">Binning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#performance">Performance</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#reshaping-dataframe">Reshaping dataframe</a></li>
+<li class="toc-entry toc-h2"><a href="#concat-vs-append">Concat vs. append</a></li>
+<li class="toc-entry toc-h2"><a href="#dataframe-iterate-rows">Dataframe: iterate rows</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#useful-links">Useful links</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#parallel-data-structures">Parallel data structures</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#jupyter-notebooks">Jupyter notebooks</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#notebooks-in-production">Notebooks in production</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#workflow">workflow</a></li>
+<li class="toc-entry toc-h3"><a href="#directory-structure">Directory structure</a></li>
+<li class="toc-entry toc-h3"><a href="#further-link">Further link</a></li>
+<li class="toc-entry toc-h3"><a href="#jupyter-notebook-template">jupyter notebook template</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#header-section">header section</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#orchestration">Orchestration</a></li>
+<li class="toc-entry toc-h3"><a href="#jupyter-code-snippets">jupyter code snippets</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#timing-and-profiling">Timing and Profiling</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#test-code">test code</a></li>
+<li class="toc-entry toc-h3"><a href="#qgrid">Qgrid</a></li>
+<li class="toc-entry toc-h3"><a href="#debugging-conda">Debugging conda</a></li>
+<li class="toc-entry toc-h3"><a href="#running-jupyter">Running Jupyter</a></li>
+<li class="toc-entry toc-h3"><a href="#installing-kernels">installing kernels</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#unsorted">unsorted</a></li>
+</ul>
+</li>
+</ul><h1 id="pandas-cheat-sheet-for-data-science">
+<a class="anchor" href="#pandas-cheat-sheet-for-data-science" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandas cheat sheet for data science</h1>
+
+<h1 id="statistics">
+<a class="anchor" href="#statistics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Statistics</h1>
+
+<h2 id="multi-variate-analysis">
+<a class="anchor" href="#multi-variate-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-variate analysis</h2>
 <p><strong>Understand the problem</strong>.</p>
 <ul>
   <li>
@@ -12,7 +215,8 @@
     sns.distplot(df_train[‘SalePrice’]);</p>
   </li>
   <li>Skewness/Kurtosis?
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">#skewness and kurtosis
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="c1">#skewness and kurtosis
 </span>  <span class="k">print</span><span class="p">(</span><span class="s">"Skewness: </span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="n">df_train</span><span class="p">[</span><span class="s">'SalePrice'</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">())</span>
   <span class="k">print</span><span class="p">(</span><span class="s">"Kurtosis: </span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> 	<span class="n">df_train</span><span class="p">[</span><span class="s">'SalePrice'</span><span class="p">]</span><span class="o">.</span><span class="n">kurt</span><span class="p">())</span><span class="sb">``</span><span class="err">`</span>
 </code></pre></div>    </div>
@@ -38,7 +242,8 @@
 </code></pre></div></div>
 
 <ol>
-  <li><strong>Multivariate study</strong>. We’ll try to understand how the dependent variable and independent variables relate.</li>
+  <li>
+<strong>Multivariate study</strong>. We’ll try to understand how the dependent variable and independent variables relate.</li>
 </ol>
 
 <p>Correlation matrix (heatmap style)</p>
@@ -56,7 +261,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://csiu.github.io/blog//img/figure/2017-03-19/heatmap.png =255x" alt="Pairplor" /></p>
+<p><img src="https://csiu.github.io/blog//img/figure/2017-03-19/heatmap.png%20=255x" alt="Pairplor"></p>
 
 <p>Scatter plots between target and correlated variables</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#scatterplot
@@ -65,7 +270,7 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
 </code></pre></div></div>
-<p><img src="https://seaborn.pydata.org/_images/seaborn-pairplot-1.png =255x" alt="Pairplor" />
+<p><img src="https://seaborn.pydata.org/_images/seaborn-pairplot-1.png%20=255x" alt="Pairplor">
 <strong>Basic cleaning</strong>. We’ll clean the dataset and handle the missing data, outliers and categorical variables.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#missing data
 </span><span class="n">total</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
@@ -76,7 +281,8 @@
 
 <p><strong>Test assumptions</strong>. We’ll check if our data meets the assumptions required by most multivariate techniques.</p>
 
-<h2 id="feature-understanding">Feature understanding</h2>
+<h2 id="feature-understanding">
+<a class="anchor" href="#feature-understanding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature understanding</h2>
 
 <ul>
   <li>
@@ -134,7 +340,8 @@ Plots</p>
   </li>
 </ul>
 
-<h1 id="preliminaries">Preliminaries</h1>
+<h1 id="preliminaries">
+<a class="anchor" href="#preliminaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preliminaries</h1>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import libraries (standard)
 </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -142,11 +349,14 @@ Plots</p>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 </code></pre></div></div>
 
-<h1 id="import">Import</h1>
+<h1 id="import">
+<a class="anchor" href="#import" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import</h1>
 <p><a href="https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html">https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html</a></p>
 
-<h1 id="input-output">Input Output</h1>
-<h2 id="input">Input</h2>
+<h1 id="input-output">
+<a class="anchor" href="#input-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input Output</h1>
+<h2 id="input">
+<a class="anchor" href="#input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h2>
 <p>Empty DataFrame (<a href="#top">top</a>)</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dataframe empty
 </span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">()</span>
@@ -312,14 +522,16 @@ default — assume data is in columns</p>
              <span class="p">})])</span>
 </code></pre></div></div>
 
-<h3 id="reading-files">Reading files</h3>
+<h3 id="reading-files">
+<a class="anchor" href="#reading-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading files</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pandas read multiple files
 </span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'weather/*.csv'</span><span class="p">)</span>
 <span class="n">weather_dfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
 <span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">weather_dfs</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="output">Output</h2>
+<h2 id="output">
+<a class="anchor" href="#output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output</h2>
 <p>CSV (<a href="#top">top</a>)</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'name.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'filename.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
@@ -354,7 +566,8 @@ default — assume data is in columns</p>
 </span></code></pre></div></div>
 <p>source: <a href="https://datatofish.com/export-pandas-dataframe-json/">https://datatofish.com/export-pandas-dataframe-json/</a></p>
 
-<h1 id="exploration">Exploration</h1>
+<h1 id="exploration">
+<a class="anchor" href="#exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exploration</h1>
 <p>pandas profiling</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">pandas</span><span class="o">-</span><span class="n">profiling</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>  
@@ -376,8 +589,10 @@ default — assume data is in columns</p>
 </span><span class="n">ted</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h1 id="selecting">Selecting</h1>
-<h2 id="summary">Summary</h2>
+<h1 id="selecting">
+<a class="anchor" href="#selecting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selecting</h1>
+<h2 id="summary">
+<a class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
 
 <p>Select columns</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dataframe select columns
@@ -449,7 +664,8 @@ default — assume data is in columns</p>
 </span><span class="n">label</span> <span class="o">=</span> <span class="n">idx</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span> <span class="c1"># maximum label
 </span></code></pre></div></div>
 
-<h2 id="whole-dataframe">Whole DataFrame</h2>
+<h2 id="whole-dataframe">
+<a class="anchor" href="#whole-dataframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whole DataFrame</h2>
 
 <p>Content/Structure</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dataframe get info
@@ -532,7 +748,8 @@ default — assume data is in columns</p>
 </span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="p">)</span><span class="c1">#5th rows
 </span></code></pre></div></div>
 
-<h2 id="columns">Columns</h2>
+<h2 id="columns">
+<a class="anchor" href="#columns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Columns</h2>
 
 <p>Index and labels (<a href="#top">top</a>)</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dataframe get index
@@ -716,7 +933,8 @@ default — assume data is in columns</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># on matched rows
 </span></code></pre></div></div>
 
-<h2 id="rows">Rows</h2>
+<h2 id="rows">
+<a class="anchor" href="#rows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rows</h2>
 
 <p>Get Position (<a href="#top">top</a>)</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'col'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#numpy array
@@ -852,7 +1070,8 @@ default — assume data is in columns</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))[:</span><span class="mi">3</span><span class="p">])</span>
 </code></pre></div></div>
 
-<h2 id="cells">Cells</h2>
+<h2 id="cells">
+<a class="anchor" href="#cells" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cells</h2>
 
 <blockquote>
   <p>Selecting</p>
@@ -918,12 +1137,14 @@ default — assume data is in columns</p>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 </code></pre></div></div>
 
-<h1 id="data-wrangling">Data wrangling</h1>
-<h2 id="merge-join">Merge Join</h2>
+<h1 id="data-wrangling">
+<a class="anchor" href="#data-wrangling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data wrangling</h1>
+<h2 id="merge-join">
+<a class="anchor" href="#merge-join" aria-hidden="true"><span class="octicon octicon-link"></span></a>Merge Join</h2>
 
 <p>More examples: <a href="https://www.geeksforgeeks.org/python-pandas-merging-joining-and-concatenating/">https://www.geeksforgeeks.org/python-pandas-merging-joining-and-concatenating/</a></p>
 
-<p><img src="https://i.imgur.com/4x8V468.png" alt="drawing" width="400" /></p>
+<p><img src="https://i.imgur.com/4x8V468.png" alt="drawing" width="400"></p>
 
 <p>(<a href="#top">top</a>)</p>
 
@@ -963,7 +1184,8 @@ values from one over the other)</li>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="groupby">GroupBy</h2>
+<h2 id="groupby">
+<a class="anchor" href="#groupby" aria-hidden="true"><span class="octicon octicon-link"></span></a>GroupBy</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pandas groupby
 # Grouping
@@ -1035,7 +1257,8 @@ values from one over the other)</li>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="dates">Dates</h2>
+<h2 id="dates">
+<a class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pandas timestamp
 # Dates and time – points and spans
@@ -1174,7 +1397,8 @@ values from one over the other)</li>
 </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="c1"># 2012, 2011, 2010
 </span></code></pre></div></div>
 
-<h2 id="missing-data">Missing data</h2>
+<h2 id="missing-data">
+<a class="anchor" href="#missing-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Missing data</h2>
 
 <p>Missing data in a Series (<a href="#top">top</a>)</p>
 
@@ -1195,7 +1419,8 @@ values from one over the other)</li>
 </span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'col'</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span>
 </code></pre></div></div>
 
-<h4 id="recodingreplacing-missing-data">Recoding/Replacing missing data</h4>
+<h4 id="recodingreplacing-missing-data">
+<a class="anchor" href="#recodingreplacing-missing-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recoding/Replacing missing data</h4>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pandas fillna recoding replacing
 </span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># np.nan -&gt; 0
 </span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'col'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># np.nan -&gt; 0
@@ -1208,7 +1433,8 @@ values from one over the other)</li>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="categorical-data">Categorical Data</h2>
+<h2 id="categorical-data">
+<a class="anchor" href="#categorical-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Categorical Data</h2>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pandas categorical data 
 </span><span class="n">s</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'a'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'d'</span><span class="p">,</span><span class="s">'a'</span><span class="p">],</span>
 <span class="n">dtype</span><span class="o">=</span><span class="s">'category'</span><span class="p">)</span>
@@ -1242,9 +1468,11 @@ values from one over the other)</li>
 </span></code></pre></div></div>
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="manipulations-and-cleaning">Manipulations and Cleaning</h2>
+<h2 id="manipulations-and-cleaning">
+<a class="anchor" href="#manipulations-and-cleaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manipulations and Cleaning</h2>
 
-<h3 id="conversions">Conversions</h3>
+<h3 id="conversions">
+<a class="anchor" href="#conversions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conversions</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># pandas convert to numeric
 ## errors='ignore'` 
@@ -1291,7 +1519,8 @@ values from one over the other)</li>
 
 <p>source: <a href="https://towardsdatascience.com/learn-advanced-features-for-pythons-main-data-analysis-library-in-20-minutes-d0eedd90d086">https://towardsdatascience.com/learn-advanced-features-for-pythons-main-data-analysis-library-in-20-minutes-d0eedd90d086</a></p>
 
-<h3 id="method-chaining">Method chaining</h3>
+<h3 id="method-chaining">
+<a class="anchor" href="#method-chaining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method chaining</h3>
 <p><a href="https://towardsdatascience.com/the-unreasonable-effectiveness-of-method-chaining-in-pandas-15c2109e3c69">https://towardsdatascience.com/the-unreasonable-effectiveness-of-method-chaining-in-pandas-15c2109e3c69</a>
 R to python: <a href="https://gist.github.com/conormm/fd8b1980c28dd21cfaf6975c86c74d07">gist</a></p>
 
@@ -1320,12 +1549,18 @@ Returns back the df to further use in chaining.
 </code></pre></div></div>
 <p>good explanation: <a href="https://tomaugspurger.github.io/method-chaining.html">https://tomaugspurger.github.io/method-chaining.html</a></p>
 <ul>
-  <li><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.assign.html">assign</a>  (0.16.0): For adding new columns to a DataFrame in a chain (inspired by dplyr’s  <code class="highlighter-rouge">mutate</code>)</li>
-  <li><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.pipe.html">pipe</a>  (0.16.2): For including user-defined methods in method chains.</li>
-  <li><a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#changes-to-rename">rename</a>  (0.18.0): For altering axis names (in additional to changing the actual labels as before).</li>
-  <li><a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#window-functions-are-now-methods">Window methods</a>  (0.18): Took the top-level  <code class="highlighter-rouge">pd.rolling_*</code>  and  <code class="highlighter-rouge">pd.expanding_*</code>  functions and made them  <code class="highlighter-rouge">NDFrame</code>  methods with a  <code class="highlighter-rouge">groupby</code>-like API.</li>
-  <li><a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#resample-api">Resample</a>  (0.18.0) Added a new  <code class="highlighter-rouge">groupby</code>-like API</li>
-  <li><a href="https://github.com/pydata/pandas/pull/12539">.where/mask/Indexers accept Callables</a>  (0.18.1): In the next release you’ll be able to pass a callable to the indexing methods, to be evaluated within the DataFrame’s context (like  <code class="highlighter-rouge">.query</code>, but with code instead of strings).</li>
+  <li>
+<a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.assign.html">assign</a>  (0.16.0): For adding new columns to a DataFrame in a chain (inspired by dplyr’s  <code class="highlighter-rouge">mutate</code>)</li>
+  <li>
+<a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.pipe.html">pipe</a>  (0.16.2): For including user-defined methods in method chains.</li>
+  <li>
+<a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#changes-to-rename">rename</a>  (0.18.0): For altering axis names (in additional to changing the actual labels as before).</li>
+  <li>
+<a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#window-functions-are-now-methods">Window methods</a>  (0.18): Took the top-level  <code class="highlighter-rouge">pd.rolling_*</code>  and  <code class="highlighter-rouge">pd.expanding_*</code>  functions and made them  <code class="highlighter-rouge">NDFrame</code>  methods with a  <code class="highlighter-rouge">groupby</code>-like API.</li>
+  <li>
+<a href="http://pandas.pydata.org/pandas-docs/version/0.18.0/whatsnew.html#resample-api">Resample</a>  (0.18.0) Added a new  <code class="highlighter-rouge">groupby</code>-like API</li>
+  <li>
+<a href="https://github.com/pydata/pandas/pull/12539">.where/mask/Indexers accept Callables</a>  (0.18.1): In the next release you’ll be able to pass a callable to the indexing methods, to be evaluated within the DataFrame’s context (like  <code class="highlighter-rouge">.query</code>, but with code instead of strings).</li>
 </ul>
 
 <p><a href="https://www.quora.com/I-love-the-flexibility-of-pandas-dataframes-but-I-feel-like-they-can-make-code-harder-to-read-and-maintain-What-are-some-pandas-best-practices-that-address-this-issue">https://www.quora.com/I-love-the-flexibility-of-pandas-dataframes-but-I-feel-like-they-can-make-code-harder-to-read-and-maintain-What-are-some-pandas-best-practices-that-address-this-issue</a></p>
@@ -1334,7 +1569,8 @@ Returns back the df to further use in chaining.
 
 <p>(<a href="#top">top</a>)</p>
 
-<h3 id="binning">Binning</h3>
+<h3 id="binning">
+<a class="anchor" href="#binning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binning</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># binning
 </span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s">"bad"</span><span class="p">,</span> <span class="s">"medium"</span><span class="p">,</span> <span class="s">"good"</span><span class="p">])</span>
 <span class="p">[</span><span class="n">bad</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">medium</span><span class="p">,</span> <span class="n">medium</span><span class="p">,</span> <span class="n">good</span><span class="p">,</span> <span class="n">bad</span><span class="p">]</span>
@@ -1423,13 +1659,15 @@ Returns back the df to further use in chaining.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s">'var1'</span><span class="p">:</span> <span class="s">'a,b,c'</span><span class="p">,</span> <span class="s">'var2'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s">'var1'</span><span class="p">:</span> <span class="s">'d,e,f'</span><span class="p">,</span> <span class="s">'var2'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}])</span> 
 <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">var1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">var1</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">','</span><span class="p">))</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s">'var1'</span><span class="p">)</span>
 </code></pre></div></div>
-<p><img src="https://pbs.twimg.com/media/ECGCmP4XkAENAtT.jpg" /></p>
+<p><img src="https://pbs.twimg.com/media/ECGCmP4XkAENAtT.jpg"></p>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h1 id="performance">Performance</h1>
+<h1 id="performance">
+<a class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h1>
 
-<h2 id="reshaping-dataframe">Reshaping dataframe</h2>
+<h2 id="reshaping-dataframe">
+<a class="anchor" href="#reshaping-dataframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reshaping dataframe</h2>
 <p>The similarity between melt and stack: <a href="https://medium.com/dunder-data/minimally-sufficient-pandas-a8e67f2a2428">blog post</a></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
 
@@ -1455,7 +1693,8 @@ Returns back the df to further use in chaining.
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="concat-vs-append">Concat vs. append</h2>
+<h2 id="concat-vs-append">
+<a class="anchor" href="#concat-vs-append" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concat vs. append</h2>
 <p><a href="https://tomaugspurger.github.io/modern-4-performance.html">source</a></p>
 
 <p>fast append via list of dictionaries:</p>
@@ -1505,27 +1744,40 @@ Returns back the df to further use in chaining.
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="dataframe-iterate-rows">Dataframe: iterate rows</h2>
-<h3 id="useful-links">Useful links</h3>
+<h2 id="dataframe-iterate-rows">
+<a class="anchor" href="#dataframe-iterate-rows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataframe: iterate rows</h2>
+<h3 id="useful-links">
+<a class="anchor" href="#useful-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful links</h3>
 <ul>
-  <li>how-to-iterate-over-rows-in-a-dataframe-in-pandas: <a href="https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas">link</a></li>
-  <li>how-to-make-your-pandas-loop-71-803-times-faster: <a href="https://towardsdatascience.com/how-to-make-your-pandas-loop-71-803-times-faster-805030df4f06">link</a></li>
-  <li>example of bringing down runtime: iterrows, iloc, get_value, apply: <a href="https://medium.com/@rtjeannier/pandas-101-cont-9d061cb73bfc">link</a></li>
-  <li>complex example using haversine_looping:  <a href="https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6">link</a>, <a href="https://nbviewer.jupyter.org/github/s-heisler/pycon2017-optimizing-pandas/blob/master/pyCon%20materials/PyCon%20un-sad%20Pandas.ipynb">jupyter notebook</a></li>
-  <li>different-ways-to-iterate-over-rows-in-a-pandas-dataframe-performance-comparison: <a href="https://towardsdatascience.com/different-ways-to-iterate-over-rows-in-a-pandas-dataframe-performance-comparison-dc0d5dcef8fe">link</a></li>
-  <li>pandas performance tweaks: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas">cython</a>, <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#using-numba">using numba</a></li>
+  <li>how-to-iterate-over-rows-in-a-dataframe-in-pandas: <a href="https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas">link</a>
+</li>
+  <li>how-to-make-your-pandas-loop-71-803-times-faster: <a href="https://towardsdatascience.com/how-to-make-your-pandas-loop-71-803-times-faster-805030df4f06">link</a>
+</li>
+  <li>example of bringing down runtime: iterrows, iloc, get_value, apply: <a href="https://medium.com/@rtjeannier/pandas-101-cont-9d061cb73bfc">link</a>
+</li>
+  <li>complex example using haversine_looping:  <a href="https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6">link</a>, <a href="https://nbviewer.jupyter.org/github/s-heisler/pycon2017-optimizing-pandas/blob/master/pyCon%20materials/PyCon%20un-sad%20Pandas.ipynb">jupyter notebook</a>
+</li>
+  <li>different-ways-to-iterate-over-rows-in-a-pandas-dataframe-performance-comparison: <a href="https://towardsdatascience.com/different-ways-to-iterate-over-rows-in-a-pandas-dataframe-performance-comparison-dc0d5dcef8fe">link</a>
+</li>
+  <li>pandas performance tweaks: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas">cython</a>, <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#using-numba">using numba</a>
+</li>
 </ul>
 
-<p><img src="https://miro.medium.com/max/3000/1*e7fxK_4DK2QqpGNzoTADAA.png" alt="" /></p>
+<p><img src="https://miro.medium.com/max/3000/1*e7fxK_4DK2QqpGNzoTADAA.png" alt=""></p>
 
 <ol>
   <li>Vectorization</li>
   <li>Cython routines</li>
   <li>List Comprehensions (vanilla  <code class="highlighter-rouge">for</code>  loop)</li>
-  <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><strong><code class="highlighter-rouge">DataFrame.apply()</code></strong></a>: i) Reductions that can be performed in cython, ii) Iteration in python space</li>
-  <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.itertuples.html"><strong><code class="highlighter-rouge">DataFrame.itertuples()</code></strong></a>  and  <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iteritems.html#pandas.DataFrame.iteritems"><strong><code class="highlighter-rouge">iteritems()</code></strong></a></li>
-  <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iterrows.html#pandas.DataFrame.iterrows"><strong><code class="highlighter-rouge">DataFrame.iterrows()</code></strong></a>
-<img src="https://i.stack.imgur.com/kRSNB.png" alt="" /></li>
+  <li>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><strong><code class="highlighter-rouge">DataFrame.apply()</code></strong></a>: i) Reductions that can be performed in cython, ii) Iteration in python space</li>
+  <li>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.itertuples.html"><strong><code class="highlighter-rouge">DataFrame.itertuples()</code></strong></a>  and  <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iteritems.html#pandas.DataFrame.iteritems"><strong><code class="highlighter-rouge">iteritems()</code></strong></a>
+</li>
+  <li>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iterrows.html#pandas.DataFrame.iterrows"><strong><code class="highlighter-rouge">DataFrame.iterrows()</code></strong></a>
+<img src="https://i.stack.imgur.com/kRSNB.png" alt="">
+</li>
 </ol>
 
 <p>(<a href="#top">top</a>)</p>
@@ -1606,13 +1858,15 @@ book chapter from jakevdp: <a href="https://jakevdp.github.io/PythonDataScienceH
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="parallel-data-structures">Parallel data structures</h2>
+<h2 id="parallel-data-structures">
+<a class="anchor" href="#parallel-data-structures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel data structures</h2>
 <ul>
   <li><a href="https://towardsdatascience.com/make-your-own-super-pandas-using-multiproc-1c04f41944a1">https://towardsdatascience.com/make-your-own-super-pandas-using-multiproc-1c04f41944a1</a></li>
   <li><a href="https://github.com/modin-project/modin">https://github.com/modin-project/modin</a></li>
   <li><a href="https://github.com/jmcarpenter2/swifter">https://github.com/jmcarpenter2/swifter</a></li>
   <li><a href="https://towardsdatascience.com/an-overview-of-pythons-datatable-package-5d3a97394ee9">datatable blog post</a></li>
-  <li>vaex: <a href="https://www.youtube.com/watch?v=2Tt0i823-ec">talk</a>, <a href="https://towardsdatascience.com/vaex-a-dataframe-with-super-strings-789b92e8d861">blog</a>,<a href="https://github.com/vaexio/vaex">github</a></li>
+  <li>vaex: <a href="https://www.youtube.com/watch?v=2Tt0i823-ec">talk</a>, <a href="https://towardsdatascience.com/vaex-a-dataframe-with-super-strings-789b92e8d861">blog</a>,<a href="https://github.com/vaexio/vaex">github</a>
+</li>
 </ul>
 
 <p><a href="https://learning.oreilly.com/library/view/python-high-performance/9781787282896/">https://learning.oreilly.com/library/view/python-high-performance/9781787282896/</a></p>
@@ -1623,16 +1877,20 @@ book chapter from jakevdp: <a href="https://jakevdp.github.io/PythonDataScienceH
 
 <p>(<a href="#top">top</a>)</p>
 
-<h1 id="jupyter-notebooks">Jupyter notebooks</h1>
+<h1 id="jupyter-notebooks">
+<a class="anchor" href="#jupyter-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupyter notebooks</h1>
 <p>jupyter notebook best practices (<a href="https://towardsdatascience.com/jupyter-notebook-best-practices-f430a6ba8c69">link</a>): <a href="https://medium.com/p/f430a6ba8c69#87fc">structure your notebook</a>, 
 automate jupyter execution: <a href="https://medium.com/@thabo_65610/three-ways-to-automate-python-via-jupyter-notebook-d14aaa78de9">link</a></p>
 
 <ul>
   <li>Extensions: <a href="https://towardsdatascience.com/set-your-jupyter-notebook-up-right-with-this-extension-24921838a332">general</a>,</li>
-  <li>snippets extension: <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/snippets/README.html">link</a></li>
-  <li>convert notebook. post-save hook: <a href="https://gist.github.com/ceshine/2a68a96e7a9f72551d00c5578249340f">gist</a></li>
+  <li>snippets extension: <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/snippets/README.html">link</a>
+</li>
+  <li>convert notebook. post-save hook: <a href="https://gist.github.com/ceshine/2a68a96e7a9f72551d00c5578249340f">gist</a>
+</li>
   <li>jupyter theme <a href="https://github.com/dunovank/jupyter-themes">github link</a>:
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jt</span> <span class="o">-</span><span class="n">t</span> <span class="n">grade3</span> <span class="o">-</span><span class="n">fs</span> <span class="mi">95</span> <span class="o">-</span><span class="n">altp</span> <span class="o">-</span><span class="n">tfs</span> <span class="mi">11</span> <span class="o">-</span><span class="n">nfs</span> <span class="mi">115</span> <span class="o">-</span><span class="n">cellw</span> <span class="mi">88</span><span class="o">%</span> <span class="o">-</span><span class="n">T</span>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="n">jt</span> <span class="o">-</span><span class="n">t</span> <span class="n">grade3</span> <span class="o">-</span><span class="n">fs</span> <span class="mi">95</span> <span class="o">-</span><span class="n">altp</span> <span class="o">-</span><span class="n">tfs</span> <span class="mi">11</span> <span class="o">-</span><span class="n">nfs</span> <span class="mi">115</span> <span class="o">-</span><span class="n">cellw</span> <span class="mi">88</span><span class="o">%</span> <span class="o">-</span><span class="n">T</span>
 </code></pre></div>    </div>
     <p>From jupyter notebooks to standalone apps (Voila): 
 <a href="https://github.com/QuantStack/voila">github</a>, <a href="https://blog.jupyter.org/and-voil%C3%A0-f6a2c08a4a93">blog</a> (example <a href="https://github.com/QuantStack/voila/pull/217">github PR</a>)</p>
@@ -1641,31 +1899,40 @@ automate jupyter execution: <a href="https://medium.com/@thabo_65610/three-ways-
 
 <p>jupyter lab:  Shortcut to run single command: <a href="https://stackoverflow.com/questions/38648286/in-jupyter-lab-execute-editor-code-in-python-console/56340407#56340407">stackoverflow</a></p>
 
-<h2 id="notebooks-in-production">Notebooks in production</h2>
+<h2 id="notebooks-in-production">
+<a class="anchor" href="#notebooks-in-production" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notebooks in production</h2>
 <p>directory structure, layout, workflow: <a href="https://pbpython.com/notebook-process.html">blog post</a>
 also: <a href="http://drivendata.github.io/cookiecutter-data-science/">cookiecutter</a></p>
 
-<h3 id="workflow">workflow</h3>
+<h3 id="workflow">
+<a class="anchor" href="#workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>workflow</h3>
 
-<p><img src="https://pbpython.com/images/Notebook_Best_Practices_flow.png" alt="" /></p>
+<p><img src="https://pbpython.com/images/Notebook_Best_Practices_flow.png" alt=""></p>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h3 id="directory-structure">Directory structure</h3>
+<h3 id="directory-structure">
+<a class="anchor" href="#directory-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directory structure</h3>
 <ul>
-  <li><code class="highlighter-rouge">raw</code>  - Contains the unedited csv and Excel files used as the source for analysis.</li>
-  <li><code class="highlighter-rouge">interim</code>  - Used if there is a multi-step manipulation. This is a scratch location and not always needed but helpful to have in place so directories do not get cluttered or as a temp location form troubleshooting issues.</li>
-  <li><code class="highlighter-rouge">processed</code>  - In many cases, I read in multiple files, clean them up and save them to a new location in a binary format. This streamlined format makes it easier to read in larger files later in the processing pipeline.</li>
+  <li>
+<code class="highlighter-rouge">raw</code>  - Contains the unedited csv and Excel files used as the source for analysis.</li>
+  <li>
+<code class="highlighter-rouge">interim</code>  - Used if there is a multi-step manipulation. This is a scratch location and not always needed but helpful to have in place so directories do not get cluttered or as a temp location form troubleshooting issues.</li>
+  <li>
+<code class="highlighter-rouge">processed</code>  - In many cases, I read in multiple files, clean them up and save them to a new location in a binary format. This streamlined format makes it easier to read in larger files later in the processing pipeline.</li>
 </ul>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h3 id="further-link">Further link</h3>
+<h3 id="further-link">
+<a class="anchor" href="#further-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further link</h3>
 <p>how netflix runs notebooks: scheduling, integration testing: <a href="https://blog.goodaudience.com/inside-netflixs-notebook-driven-architecture-aedded32145e">link</a></p>
 
-<h3 id="jupyter-notebook-template">jupyter notebook template</h3>
+<h3 id="jupyter-notebook-template">
+<a class="anchor" href="#jupyter-notebook-template" aria-hidden="true"><span class="octicon octicon-link"></span></a>jupyter notebook template</h3>
 
-<h4 id="header-section">header section</h4>
+<h4 id="header-section">
+<a class="anchor" href="#header-section" aria-hidden="true"><span class="octicon octicon-link"></span></a>header section</h4>
 <ul>
   <li>A good name for the notebook (as described above)</li>
   <li>A summary header that describes the project</li>
@@ -1676,10 +1943,12 @@ also: <a href="http://drivendata.github.io/cookiecutter-data-science/">cookiecut
 
 <p>(<a href="#top">top</a>)</p>
 
-<h3 id="orchestration">Orchestration</h3>
+<h3 id="orchestration">
+<a class="anchor" href="#orchestration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Orchestration</h3>
 <p><a href="https://taskfile.dev/#/">https://taskfile.dev/#/</a></p>
 
-<h3 id="jupyter-code-snippets">jupyter code snippets</h3>
+<h3 id="jupyter-code-snippets">
+<a class="anchor" href="#jupyter-code-snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>jupyter code snippets</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># jupyter notebook --generate-config
 </span><span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">--</span><span class="n">generate</span><span class="o">-</span><span class="n">config</span>
 
@@ -1767,10 +2036,12 @@ def select_condition(tmp):
 
 <p>(<a href="#top">top</a>)</p>
 
-<h2 id="timing-and-profiling">Timing and Profiling</h2>
+<h2 id="timing-and-profiling">
+<a class="anchor" href="#timing-and-profiling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timing and Profiling</h2>
 <p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/01.07-timing-and-profiling.html">https://jakevdp.github.io/PythonDataScienceHandbook/01.07-timing-and-profiling.html</a></p>
 
-<h3 id="test-code">test code</h3>
+<h3 id="test-code">
+<a class="anchor" href="#test-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>test code</h3>
 <p><a href="https://mikulskibartosz.name/test-driven-development-in-jupyter-notebook-2eb3595be3cd">test driven development in jupyter notebook</a></p>
 
 <p>asserts</p>
@@ -1791,12 +2062,14 @@ If tqdm doesnt work:
 install <a href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a>
 Hbox full: <a href="https://github.com/tqdm/tqdm/issues/451">link</a></p>
 
-<h3 id="qgrid">Qgrid</h3>
+<h3 id="qgrid">
+<a class="anchor" href="#qgrid" aria-hidden="true"><span class="octicon octicon-link"></span></a>Qgrid</h3>
 <p><a href="https://github.com/quantopian/qgrid/blob/master/README.rst">Qgrid readme</a></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">qgrid</span><span class="o">.</span><span class="n">show_grid</span><span class="p">(</span><span class="n">e_tpatt_df</span><span class="p">,</span> <span class="n">grid_options</span><span class="o">=</span><span class="p">{</span><span class="s">'forceFitColumns'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s">'defaultColumnWidth'</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
 </code></pre></div></div>
 
-<h3 id="debugging-conda">Debugging conda</h3>
+<h3 id="debugging-conda">
+<a class="anchor" href="#debugging-conda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging conda</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># conda show install versions
 </span><span class="kn">import</span> <span class="nn">sys</span> <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 <span class="ow">or</span>
@@ -1804,7 +2077,8 @@ Hbox full: <a href="https://github.com/tqdm/tqdm/issues/451">link</a></p>
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s">'fastai'</span><span class="p">])</span>
 </code></pre></div></div>
 
-<h3 id="running-jupyter">Running Jupyter</h3>
+<h3 id="running-jupyter">
+<a class="anchor" href="#running-jupyter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Jupyter</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">--</span><span class="n">browser</span><span class="o">=</span><span class="n">false</span> <span class="o">&amp;&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">&amp;</span>
 <span class="o">--</span><span class="n">matplotlib</span> <span class="n">inline</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">9777</span> <span class="o">--</span><span class="n">browser</span><span class="o">=</span><span class="n">false</span>
@@ -1822,7 +2096,8 @@ Hbox full: <a href="https://github.com/tqdm/tqdm/issues/451">link</a></p>
 
 <p>(<a href="#top">top</a>)</p>
 
-<h3 id="installing-kernels">installing kernels</h3>
+<h3 id="installing-kernels">
+<a class="anchor" href="#installing-kernels" aria-hidden="true"><span class="octicon octicon-link"></span></a>installing kernels</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># conda install kernel
 source activate &lt;ANACONDA_ENVIRONMENT_NAME&gt;  
@@ -1840,7 +2115,8 @@ python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 
 <p>##</p>
 
-<h2 id="unsorted">unsorted</h2>
+<h2 id="unsorted">
+<a class="anchor" href="#unsorted" aria-hidden="true"><span class="octicon octicon-link"></span></a>unsorted</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># use dictionary to count list
 </span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
@@ -1904,3 +2180,36 @@ python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 </span></code></pre></div></div>
 
 <p>(<a href="#top">top</a>)</p>
+
+  </div><a class="u-url" href="/blog/python/cheat%20sheet/2020/03/23/data-science-snippets.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Data Science · Machine Learning · Deep Learning · Big Data · Bioinformatics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fabsta" title="fabsta"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fabschreiber" title="fabschreiber"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

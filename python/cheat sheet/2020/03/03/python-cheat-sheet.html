@@ -1,4 +1,142 @@
-<h1 id="preliminaries">Preliminaries</h1>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python cheat sheet | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python cheat sheet" />
+<meta property="og:description" content="Python cheat sheet" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:image" content="/blog/images/python/generator.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python cheat sheet","image":"/blog/images/python/generator.jpg","description":"Python cheat sheet","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/python/cheat%20sheet/2020/03/03/python-cheat-sheet.html"},"@type":"BlogPosting","url":"/blog/python/cheat%20sheet/2020/03/03/python-cheat-sheet.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python cheat sheet | Fabian’s blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Python cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python cheat sheet" />
+<meta property="og:description" content="Python cheat sheet" />
+<meta property="og:site_name" content="Fabian’s blog" />
+<meta property="og:image" content="/blog/images/python/generator.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-03-03T00:00:00-06:00","headline":"Python cheat sheet","image":"/blog/images/python/generator.jpg","description":"Python cheat sheet","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/python/cheat%20sheet/2020/03/03/python-cheat-sheet.html"},"@type":"BlogPosting","url":"/blog/python/cheat%20sheet/2020/03/03/python-cheat-sheet.html","dateModified":"2020-03-03T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Fabian's blog" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Fabian&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">👤️ About Me</a><a class="page-link" href="/blog/search/">🔎️ Search</a><a class="page-link" href="/blog/snippets/">Code snippets</a><a class="page-link" href="/blog/categories/">📂️ Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python cheat sheet</h1><p class="page-description">Python cheat sheet</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-03T00:00:00-06:00" itemprop="datePublished">
+        Mar 3, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      20 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#cheat sheet">cheat sheet</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#preliminaries">Preliminaries</a></li>
+<li class="toc-entry toc-h1"><a href="#primitive-datatypes-and-operators">Primitive Datatypes and Operators</a></li>
+<li class="toc-entry toc-h1"><a href="#strings">Strings</a></li>
+<li class="toc-entry toc-h1"><a href="#variables-and-collections">Variables and Collections</a></li>
+<li class="toc-entry toc-h1"><a href="#lists">Lists</a></li>
+<li class="toc-entry toc-h1"><a href="#tuples">Tuples</a></li>
+<li class="toc-entry toc-h1"><a href="#dictionary">Dictionary</a></li>
+<li class="toc-entry toc-h1"><a href="#sets">Sets</a></li>
+<li class="toc-entry toc-h1"><a href="#control-flow">Control Flow</a></li>
+<li class="toc-entry toc-h1"><a href="#exceptions">Exceptions</a></li>
+<li class="toc-entry toc-h1"><a href="#functions">Functions</a></li>
+<li class="toc-entry toc-h1"><a href="#classes">Classes</a></li>
+<li class="toc-entry toc-h1"><a href="#modules">Modules</a></li>
+<li class="toc-entry toc-h1"><a href="#advanced">Advanced</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#generators">Generators</a></li>
+<li class="toc-entry toc-h2"><a href="#decorators">Decorators</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#files">Files</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#command-line">Command line</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#printing">Printing</a></li>
+<li class="toc-entry toc-h1"><a href="#images">Images</a></li>
+</ul><h1 id="preliminaries">
+<a class="anchor" href="#preliminaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preliminaries</h1>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
@@ -17,9 +155,10 @@
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="primitive-datatypes-and-operators">Primitive Datatypes and Operators</h1>
+<h1 id="primitive-datatypes-and-operators">
+<a class="anchor" href="#primitive-datatypes-and-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primitive Datatypes and Operators</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># You have numbers
 </span><span class="mi">3</span>  <span class="c1"># =&gt; 3
@@ -95,9 +234,10 @@
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="strings">Strings</h1>
+<h1 id="strings">
+<a class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h1>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Strings are created with " or '
 </span><span class="sb">``</span><span class="err">`</span><span class="n">python</span>
 <span class="s">"This is a string."</span>
@@ -131,7 +271,7 @@
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
 <p>Object</p>
 
@@ -162,9 +302,10 @@
 </span><span class="nb">bool</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>  <span class="c1"># =&gt; False
 </span></code></pre></div></div>
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="variables-and-collections">Variables and Collections</h1>
+<h1 id="variables-and-collections">
+<a class="anchor" href="#variables-and-collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables and Collections</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Python has a print statement
 </span><span class="k">print</span> <span class="s">"I'm Python. Nice to meet you!"</span> <span class="c1"># =&gt; I'm Python. Nice to meet you!
@@ -189,9 +330,10 @@
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="lists">Lists</h1>
+<h1 id="lists">
+<a class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Lists store sequences
 </span><span class="n">li</span> <span class="o">=</span> <span class="p">[]</span>
@@ -265,9 +407,10 @@
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="tuples">Tuples</h1>
+<h1 id="tuples">
+<a class="anchor" href="#tuples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tuples</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Tuples are like lists but are immutable.
 </span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -293,7 +436,8 @@
 
 <p>(<a href="#top">Back to top</a>)</p>
 
-<h1 id="dictionary">Dictionary</h1>
+<h1 id="dictionary">
+<a class="anchor" href="#dictionary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dictionary</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Dictionaries store mappings
 </span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -343,9 +487,10 @@
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="sets">Sets</h1>
+<h1 id="sets">
+<a class="anchor" href="#sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sets</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Sets store ... well sets (which are like lists but can contain no duplicates)
 </span><span class="n">empty_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
@@ -383,9 +528,10 @@
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="control-flow">Control Flow</h1>
+<h1 id="control-flow">
+<a class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control Flow</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Let's just make a variable
 </span><span class="n">some_var</span> <span class="o">=</span> <span class="mi">5</span>
@@ -443,7 +589,8 @@ while x &lt; 4:
     x += 1  # Shorthand for x = x + 1
 </span></code></pre></div></div>
 
-<h1 id="exceptions">Exceptions</h1>
+<h1 id="exceptions">
+<a class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Handle exceptions with a try/except block
 </span><span class="k">try</span><span class="p">:</span>
@@ -466,7 +613,8 @@ while x &lt; 4:
         <span class="k">print</span> <span class="n">line</span>
 </code></pre></div></div>
 
-<h1 id="functions">Functions</h1>
+<h1 id="functions">
+<a class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Use "def" to create new functions
 </span>
@@ -544,7 +692,7 @@ all_the_args(1, 2, a=3, b=4) prints:
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
 <p>There are also anonymous functions</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; True
@@ -561,9 +709,10 @@ all_the_args(1, 2, a=3, b=4) prints:
 </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>   <span class="c1"># =&gt; [6, 7]
 </span></code></pre></div></div>
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="classes">Classes</h1>
+<h1 id="classes">
+<a class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We subclass from object to get a class.
 </span><span class="k">class</span> <span class="nc">Human</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -641,9 +790,10 @@ all_the_args(1, 2, a=3, b=4) prints:
 </span></code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="modules">Modules</h1>
+<h1 id="modules">
+<a class="anchor" href="#modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># You can import modules
 </span><span class="kn">import</span> <span class="nn">math</span>
@@ -674,11 +824,13 @@ all_the_args(1, 2, a=3, b=4) prints:
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="advanced">Advanced</h1>
+<h1 id="advanced">
+<a class="anchor" href="#advanced" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced</h1>
 
-<h2 id="generators">Generators</h2>
+<h2 id="generators">
+<a class="anchor" href="#generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generators help you make lazy code
 </span><span class="k">def</span> <span class="nf">double_numbers</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
@@ -687,10 +839,10 @@ all_the_args(1, 2, a=3, b=4) prints:
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
 <p>A generator creates values on the fly.
-Instead of generating and returning all values at once it creates one in each iteration.  This means values bigger than 15 wont be processed in double_numbers.<br />
+Instead of generating and returning all values at once it creates one in each iteration.  This means values bigger than 15 wont be processed in double_numbers.<br>
 Note xrange is a generator that does the same thing range does.
 Creating a list 1-900000000 would take lot of time and space to be made. xrange creates an xrange generator object instead of creating the entire list like range does.</p>
 
@@ -706,9 +858,10 @@ Creating a list 1-900000000 would take lot of time and space to be made. xrange 
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h2 id="decorators">Decorators</h2>
+<h2 id="decorators">
+<a class="anchor" href="#decorators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decorators</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># in this example beg wraps say Beg will call say. If say_please is True then it will change the returned message
 </span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
@@ -730,9 +883,10 @@ Creating a list 1-900000000 would take lot of time and space to be made. xrange 
 </code></pre></div></div>
 
 <p>(<a href="#top">Back to top</a>)</p>
-<hr />
+<hr>
 
-<h1 id="files">Files</h1>
+<h1 id="files">
+<a class="anchor" href="#files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files</h1>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># iterate over files
 </span><span class="kn">import</span> <span class="nn">glob</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span>
@@ -801,18 +955,21 @@ Creating a list 1-900000000 would take lot of time and space to be made. xrange 
 
 </code></pre></div></div>
 
-<h2 id="command-line">Command line</h2>
+<h2 id="command-line">
+<a class="anchor" href="#command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line</h2>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="n">converter_script</span><span class="p">,</span> <span class="s">'-f'</span> <span class="p">,</span><span class="n">input_file</span><span class="p">,</span><span class="s">'-o'</span><span class="p">,</span>  <span class="n">output_file</span><span class="p">]))</span>
 </code></pre></div></div>
 
-<h1 id="printing">Printing</h1>
+<h1 id="printing">
+<a class="anchor" href="#printing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Printing</h1>
 <p>use f strings:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s">"{name.lower()} is funny."</span>
 <span class="s">'eric idle is funny.'</span>
 </code></pre></div></div>
 <p><a href="https://realpython.com/python-f-strings/">source</a></p>
 
-<h1 id="images">Images</h1>
+<h1 id="images">
+<a class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h1>
 
 <p>Display images</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">Image</span>
@@ -833,3 +990,36 @@ Creating a list 1-900000000 would take lot of time and space to be made. xrange 
 <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">'my.png'</span><span class="p">)</span>
 <span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/python/cheat%20sheet/2020/03/03/python-cheat-sheet.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Data Science · Machine Learning · Deep Learning · Big Data · Bioinformatics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fabsta" title="fabsta"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fabschreiber" title="fabschreiber"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
