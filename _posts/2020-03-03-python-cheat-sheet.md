@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Python cheat sheet
 categories: [python, cheat sheet]
-- image: images/python/generator.jpg
+image: images/python/generator.jpg
 title: Python cheat sheet
 ---
 
