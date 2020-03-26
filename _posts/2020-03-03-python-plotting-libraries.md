@@ -2,7 +2,8 @@
 toc: true
 layout: post
 description: Overview of python plotting libraries.
-categories: [markdown]
+categories: [python, plotting]
+- image: images/python/violin_plot.jpg
 title: Python plotting libraries
 ---
 

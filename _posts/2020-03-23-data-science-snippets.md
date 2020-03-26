@@ -2,7 +2,8 @@
 toc: true
 layout: post
 description: Python code snippets for data science.
-categories: [markdown]
+categories: [python, cheat sheet]
+- image: images/python/pipe.jpg
 title: Pandas cheat sheet for data science
 ---
 
