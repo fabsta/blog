@@ -8,7 +8,12 @@ permalink: /about/
 
 
 I am a data scientist and bioinformatician by training. 
-My research interest includes bioinformatics, AI for drug discovery, precision medicine, computer vision applications of Deep Learning and model interpretability.
+My research interest includes 
+* bioinformatics 
+* AI for drug discovery 
+* precision medicine 
+* computer vision applications of Deep Learning
+* model interpretability.
 
 ## Interests
 * Artificial Intelligence
