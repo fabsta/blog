@@ -15,12 +15,6 @@ My research interest includes
 * computer vision applications of Deep Learning
 * model interpretability.
 
-## Interests
-* Artificial Intelligence
-* Computational Biology
-* Drug discovery
-* AI for social good
-
 ## Education
 
 * PhD in Bioinformatics, 2010, GGNB Goettingen
