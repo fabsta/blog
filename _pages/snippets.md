@@ -83,11 +83,16 @@ I keep a collection of useful code snippets in
 </li></p>
 
 <p><li>Collection of DS articles:
-<a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304">link</a>
+<a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304">link</a>:   
+    <a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304#ml">ML</a>,
+    <a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304#math">math</a>,
+    <a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304#bias-paradox-fallacies">bias paradox fallacies</a>,
+    <a href="https://gist.github.com/fabsta/b4ff72187742e9baf1a644c6603df304#cv">cv</a>,
+        
 </li></p>
 
 <p><li>Kaggle: <a href="https://gist.github.com/fabsta/e87801aacfe7524b74cdae31d536f670">Competitions notes</a>, <a href="https://gist.github.com/fabsta/33773f38e007b0f1853dad7840b12515">Participated competitions</a></li>
-</ul></p>
+</p>
 
 <p>Statistics
 <ul>
@@ -97,11 +102,12 @@ I keep a collection of useful code snippets in
 <p>Biomedical Science
 <ul>
 <li>AI in drug discovery: <a href="https://gist.github.com/fabsta/0b20935c3c066a2ad788d83f2a66ceff">link</a></li>
+
 <li>AI4Medicine: <a href="https://gist.github.com/fabsta/bfeb916d6ec961da7087fd13ca09bdd5">link</a></li>
     
     
     
-<li>Medicinal chemistry:
+<p><li>Medicinal chemistry:
 <a href="https://gist.github.com/fabsta/3e144effecf8c89078447d1082cb13ae#pre-regulatory-medicine">pre-regulatory medicine</a>,
 <a href="https://gist.github.com/fabsta/3e144effecf8c89078447d1082cb13ae#protein-structure">protein structure</a>,
 <a href="https://gist.github.com/fabsta/3e144effecf8c89078447d1082cb13ae#pharmacokinetics">pharmacokinetics</a>,
