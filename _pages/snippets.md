@@ -134,6 +134,10 @@ I keep a collection of useful code snippets in
 <a href="https://gist.github.com/fabsta/4af99eb8db14105f3af5558eab9457df">Clinical trial notes</a>
 </li></p>
 
+<p><li>Epidemiology:
+<a href="https://gist.github.com/fabsta/98d8a6cc42d5d3d965d36bfc58d426a6">Fighting COVID-19 with epidemiology</a>
+</li></p>
+    
 <p><li>Organic chemistry course (khan academy):
 <a href="https://gist.github.com/fabsta/7fc9ac1f4a48258cde570a5a3d9064bf#structure-and-bonding">Structure and bonding</a>,
 <a href="https://gist.github.com/fabsta/7fc9ac1f4a48258cde570a5a3d9064bf#electronegativity">Electronegativity</a>,
